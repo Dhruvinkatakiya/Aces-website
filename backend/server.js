@@ -6,26 +6,48 @@ const cors = require('cors');
 const joinRoutes = require('./routes/join');
 const contactRoutes = require('./routes/contact');
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+let isMongoConnected = false;
 
-const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
+function createApp() {
+    const app = express();
+    app.use(cors());
+    app.use(express.json());
 
-if (!mongoUri) {
-    console.error('Missing MongoDB connection string. Set MONGO_URI (or MONGODB_URI) in your .env');
-    process.exit(1);
-}
+    app.use('/api/join', joinRoutes);
+    app.use('/api/contact', contactRoutes);
 
-mongoose.connect(mongoUri)
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => {
-        console.error('MongoDB connection error:', err.message);
-        process.exit(1);
+    // Simple healthcheck
+    app.get('/health', (req, res) => {
+        res.json({ ok: true, db: isMongoConnected ? 'connected' : 'disconnected' });
     });
 
-app.use('/api/join', joinRoutes);
-app.use('/api/contact', contactRoutes);
+    return app;
+}
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+async function connectMongo() {
+    if (isMongoConnected) return;
+    const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
+    if (!mongoUri) {
+        throw new Error('Missing MongoDB connection string. Set MONGO_URI (or MONGODB_URI).');
+    }
+    await mongoose.connect(mongoUri);
+    isMongoConnected = true;
+    // eslint-disable-next-line no-console
+    console.log('MongoDB connected');
+}
+
+// Start server only when running locally (node server.js)
+if (require.main === module) {
+    connectMongo()
+        .then(() => {
+            const app = createApp();
+            const PORT = process.env.PORT || 5000;
+            app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+        })
+        .catch((err) => {
+            console.error('MongoDB connection error:', err.message);
+            process.exit(1);
+        });
+}
+
+module.exports = { createApp, connectMongo };

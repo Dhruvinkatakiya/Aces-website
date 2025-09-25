@@ -1,10 +1,24 @@
 import React, { useEffect, useRef } from 'react'
+import jayAvatar from '../assets/boardteam/Jay Patel.png'
+import kathanAvatar from '../assets/boardteam/Kathan Panchal.png'
+import tvishaAvatar from '../assets/boardteam/Tvisha Patel.png'
+import sarahAvatar from '../assets/boardteam/Sarah Saiyed.png'
+import sahilAvatar from '../assets/boardteam/Sahil Bokhani.png'
+import mahekAvatar from '../assets/boardteam/Mahek Mehta.png'
+import chinmayAvatar from '../assets/boardteam/Chinmay Kela.png'
+import snehAvatar from '../assets/boardteam/Sneh Patel.png'
+import rudraAvatar from '../assets/boardteam/Rudra Naik.png'
+import dhruvinAvatar from '../assets/boardteam/Dhruvin Katakiya.png'
+import keshiniAvatar from '../assets/boardteam/Keshini Trivedi.png'
+import nikhilAvatar from '../assets/boardteam/Nikhil Raval.png'
+import aakanshaAvatar from '../assets/boardteam/Aakansha Rajpal.png'
+import aayushAvatar from '../assets/boardteam/Aayush Patel.png'
 
 const teamMembers = [
   {
     name: 'Jay Patel',
     role: 'President',
-    avatar: '',
+    avatar: jayAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/jayypatel18/'
     },
@@ -12,7 +26,7 @@ const teamMembers = [
   {
     name: 'Kathan Panchal',
     role: 'Vice President',
-    avatar: '',
+    avatar: kathanAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/kathan-panchal-2894a924a/',
     },
@@ -20,7 +34,7 @@ const teamMembers = [
   {
     name: 'Twisha Patel',
     role: 'General Secretary',
-    avatar: '',
+    avatar: tvishaAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/tvisha-patel-028816258/',
     },
@@ -28,7 +42,7 @@ const teamMembers = [
   {
     name: 'Sarah Saiyed',
     role: 'Joint Secretary',
-    avatar: '',
+    avatar: sarahAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/sarah-saiyed0/',
     },
@@ -36,7 +50,7 @@ const teamMembers = [
   {
     name: 'Sahil Bokhani',
     role: 'Organizing Secretary',
-    avatar: '',
+    avatar: sahilAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/sahil-bokhani-196006251/',
     },
@@ -44,7 +58,7 @@ const teamMembers = [
   {
     name: 'Mahek Mehta',
     role: 'Managing Director',
-    avatar: '',
+    avatar: mahekAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/mahek-mehta-b11735231/',
     },
@@ -52,7 +66,7 @@ const teamMembers = [
   {
     name: 'Chinmay Kela',
     role: 'Director General',
-    avatar: '',
+    avatar: chinmayAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/chinmay-kela-3651ba272/',
     },
@@ -60,7 +74,7 @@ const teamMembers = [
   {
     name: 'Sneh Patel',
     role: 'Treasurer',
-    avatar: '',
+    avatar: snehAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/snehpatel2510/',
     },
@@ -68,7 +82,7 @@ const teamMembers = [
   {
     name: 'Rudra Naik',
     role: 'Logistic Head',
-    avatar: '',
+    avatar: rudraAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/rudy7404/',
     },
@@ -76,7 +90,7 @@ const teamMembers = [
   {
     name: 'Dhruvin Katakiya',
     role: 'Technical Head',
-    avatar: '',
+    avatar: dhruvinAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/dhruvin-katakiya/',
     },
@@ -84,7 +98,7 @@ const teamMembers = [
   {
     name: 'Keishini Trivedi',
     role: 'Social Media Head',
-    avatar: '',
+    avatar: keshiniAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/keshini-trivedi/',
     },
@@ -92,7 +106,7 @@ const teamMembers = [
   {
     name: 'Nikhil Raval',
     role: 'Editor Head',
-    avatar: '',
+    avatar: nikhilAvatar,
     socials: {
       linkedin: 'https://www.linkedin.com/in/nikhil-raval-2a89ab293/',
     },
@@ -100,7 +114,7 @@ const teamMembers = [
   {
     name: 'Aakanksha Rajpal',
     role: 'Creative Head',
-    avatar: '',
+    avatar: aakanshaAvatar,
     socials: {
       linkedin: '#',
     },
@@ -108,7 +122,7 @@ const teamMembers = [
   {
     name: 'Aayush Patel',
     role: 'Graphic Head',
-    avatar: '',
+    avatar: aayushAvatar,
     socials: {
       linkedin: '#',
     },
