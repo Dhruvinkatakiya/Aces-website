@@ -1,4 +1,4 @@
-## ACES Website (Monorepo)
+## ACES Website
 
 Short guide to run the project locally.
 
