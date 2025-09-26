@@ -53,7 +53,7 @@ function Contact() {
         width: '100%',
         minHeight: '100vh',
         backgroundColor: '#0f101d',
-        padding: '80px 0',
+        padding: '64px 0',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -65,7 +65,7 @@ function Contact() {
       {/* Header Section */}
       <div style={{ textAlign: 'center', marginBottom: '60px', position: 'relative', zIndex: 10 }}>
         <h2 style={{
-          fontSize: '3rem',
+          fontSize: 'clamp(2rem, 4vw, 3rem)',
           fontWeight: 'bold',
           color: '#ffffff',
           margin: '0 0 20px 0',
@@ -84,7 +84,7 @@ function Contact() {
         }} />
         
         <p style={{
-          fontSize: '1.1rem',
+          fontSize: 'clamp(1rem, 2.8vw, 1.1rem)',
           color: 'rgba(255, 255, 255, 0.8)',
           margin: '0',
           maxWidth: '600px',
@@ -96,15 +96,15 @@ function Contact() {
 
       {/* Contact Form */}
       <div style={{
-        width: '90%',
-        maxWidth: '600px',
+        width: '92%',
+        maxWidth: '620px',
         position: 'relative',
         zIndex: 10
       }}>
         <div style={{
           background: 'linear-gradient(135deg, rgba(155, 89, 182, 0.15) 0%, rgba(0, 229, 255, 0.15) 100%)',
           borderRadius: '20px',
-          padding: '40px',
+          padding: '24px',
           border: '1px solid rgba(0, 229, 255, 0.3)',
           boxShadow: '0 8px 32px rgba(0, 229, 255, 0.1)',
           backdropFilter: 'blur(10px)',
@@ -123,7 +123,7 @@ function Contact() {
           }} />
           
           <h3 style={{
-            fontSize: '1.5rem',
+            fontSize: 'clamp(1.2rem, 3.2vw, 1.5rem)',
             fontWeight: 'bold',
             color: '#ffffff',
             margin: '0 0 30px 0',
@@ -179,7 +179,7 @@ function Contact() {
             </div>
 
             {/* Message Field */}
-            <div style={{ marginBottom: '30px' }}>
+            <div style={{ marginBottom: '24px' }}>
               <textarea
                 name="message"
                 placeholder="Your message"
@@ -190,7 +190,7 @@ function Contact() {
                 style={{
                   ...inputStyle,
                   resize: 'vertical',
-                  minHeight: '120px',
+                  minHeight: '108px',
                   fontFamily: 'inherit'
                 }}
                 onFocus={(e) => {
@@ -243,7 +243,7 @@ function Contact() {
       <div
         style={{
           textAlign: 'center',
-          marginTop: '30px',    // reduced top margin
+          marginTop: '28px',
           position: 'relative',
           zIndex: 10
         }}
@@ -261,7 +261,7 @@ function Contact() {
 
         <p
           style={{
-            fontSize: '1rem',
+            fontSize: 'clamp(0.95rem, 2.6vw, 1rem)',
             color: 'rgba(255, 255, 255, 0.8)',
             margin: '10px'
           }}

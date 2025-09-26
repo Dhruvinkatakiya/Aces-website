@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import useCachedImage from '../hooks/useCachedImage'
 import jayAvatar from '../assets/boardteam/Jay Patel.png'
 import kathanAvatar from '../assets/boardteam/Kathan Panchal.png'
 import tvishaAvatar from '../assets/boardteam/Tvisha Patel.png'
@@ -168,7 +169,7 @@ function Team() {
           <div className="mt-4 mx-auto w-24 h-1 rounded bg-[var(--color-cyan)] animate-pulse"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-8">
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
@@ -187,23 +188,13 @@ function Team() {
               </div>
 
               <div className="relative z-10">
-                <div className="mx-auto w-28 h-28 rounded-full overflow-hidden ring-1 ring-white/10 shadow-lg transition-all duration-500 group-hover:ring-2 group-hover:ring-[var(--color-cyan)]/50 group-hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] group-hover:scale-110">
-                  <div className="w-full h-full bg-gradient-to-br from-[var(--color-cyan)]/20 to-[var(--color-navy-2)] flex items-center justify-center text-2xl font-bold text-[var(--color-cyan)] relative overflow-hidden">
-                    {member.avatar ? (
-                      <img src={member.avatar} alt={member.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                    ) : (
-                      <>
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                        {/* Animated ring effect */}
-                        <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyan)]/30 animate-ping opacity-0 group-hover:opacity-100"></div>
-                      </>
-                    )}
-                  </div>
+                <div className="mx-auto w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden ring-1 ring-white/10 shadow-lg transition-all duration-500 group-hover:ring-2 group-hover:ring-[var(--color-cyan)]/50 group-hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] group-hover:scale-110">
+                  <AvatarImage name={member.name} src={member.avatar} />
                 </div>
                 
-                <div className="mt-4 transform transition-all duration-300 group-hover:translate-y-[-2px]">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-[var(--color-cyan)] transition-colors duration-300">{member.name}</h3>
-                  <p className="text-[var(--color-cyan)] text-sm mt-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300">{member.role}</p>
+                <div className="mt-3 transform transition-all duration-300 group-hover:translate-y-[-2px]">
+                  <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-[var(--color-cyan)] transition-colors duration-300">{member.name}</h3>
+                  <p className="text-[var(--color-cyan)] text-xs sm:text-sm mt-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300">{member.role}</p>
                 </div>
                 
                 <div className="mt-4 flex items-center justify-center gap-4 text-white/70">
@@ -235,3 +226,21 @@ function Team() {
 }
 
 export default Team
+
+function AvatarImage({ name, src }) {
+  const cached = useCachedImage(src)
+  const initials = name.split(' ').map(n => n[0]).join('')
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-[var(--color-cyan)]/20 to-[var(--color-navy-2)] flex items-center justify-center text-2xl font-bold text-[var(--color-cyan)] relative overflow-hidden">
+      {cached || src ? (
+        // eslint-disable-next-line jsx-a11y/alt-text
+        <img src={cached || src} alt={name} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+      ) : (
+        <>
+          {initials}
+          <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyan)]/30 animate-ping opacity-0 group-hover:opacity-100"></div>
+        </>
+      )}
+    </div>
+  )
+}

@@ -16,7 +16,7 @@ function Events() {
     {
       id: 1,
       title: "Summer Internship Insights",
-      date: "March 15-17, 2024",
+      date: "21 August, 2024",
       time: "9:00 AM - 6:00 PM",
       location: "ITNU Campus",
       description: "Join us for an exciting 48-hour coding competition where students showcase their programming skills and innovative ideas.", image: "",
@@ -90,6 +90,7 @@ function Events() {
   return (
     <section
       id="events"
+      className="events-section"
       style={{
         width: '100%',
         minHeight: '100vh',
@@ -189,9 +190,8 @@ function Events() {
         position: 'relative',
         zIndex: 10
       }}>
-        <div style={{
+        <div className="events-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
           gap: '30px',
           justifyContent: 'center',
           alignItems: 'start'
@@ -280,12 +280,16 @@ function Events() {
               <div style={{
                 width: '100%',
                 height: '220px',
-                background: `linear-gradient(45deg, rgba(0, 229, 255, 0.15) 0%, rgba(155, 89, 182, 0.15) 100%), url(${event.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 position: 'relative',
                 overflow: 'hidden'
               }}>
+                {/* If using local images later, plug into LazyImage */}
+                {/* <LazyImage src={event.image} alt={event.title} width="100%" height="220" /> */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  background: `linear-gradient(45deg, rgba(0, 229, 255, 0.15) 0%, rgba(155, 89, 182, 0.15) 100%), url(${event.image})`,
+                  backgroundSize: 'cover', backgroundPosition: 'center'
+                }} />
                 {/* Image Overlay Animation */}
                 <div style={{
                   position: 'absolute',
@@ -332,7 +336,7 @@ function Events() {
                 zIndex: 2
               }}>
                 <h3 style={{
-                  fontSize: '1.5rem',
+                  fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
                   fontWeight: 'bold',
                   color: '#ffffff',
                   margin: '0 0 18px 0',
@@ -414,7 +418,7 @@ function Events() {
                 </div>
 
                 <p style={{
-                  fontSize: '0.95rem',
+                  fontSize: 'clamp(0.9rem, 2.2vw, 0.95rem)',
                   color: 'rgba(255, 255, 255, 0.75)',
                   lineHeight: '1.6',
                   margin: '0 0 25px 0',
@@ -430,7 +434,7 @@ function Events() {
                   border: '2px solid #00E5FF',
                   background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)',
                   color: '#00E5FF',
-                  fontSize: '14px',
+                  fontSize: 'clamp(13px, 2.3vw, 14px)',
                   fontWeight: 'bold',
                   cursor: 'pointer',
                   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -476,6 +480,31 @@ function Events() {
 }
 
 <style>{`
+  /* Responsive container padding */
+  .events-section {
+    padding: 64px 0;
+  }
+  @media (max-width: 1024px) {
+    .events-section { padding: 56px 0; }
+  }
+  @media (max-width: 640px) {
+    .events-section { padding: 48px 0; }
+  }
+
+  /* Responsive grid */
+  .events-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+  @media (min-width: 480px) {
+    .events-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  }
+  @media (min-width: 768px) {
+    .events-grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+  }
+  @media (min-width: 1024px) {
+    .events-grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+  }
+
   @keyframes creativePopIn {
     0% {
       opacity: 0;
