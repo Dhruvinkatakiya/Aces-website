@@ -8,6 +8,7 @@ const Hero = () => {
 
   return (
     <div
+      className="hero-container"
       style={{
         width: '100%',
         minHeight: '100vh',
@@ -26,8 +27,8 @@ const Hero = () => {
       </div>*/}
 
       {/* Foreground section: logo left, code card right */}
-      <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '32px', padding: '0px 0px', width: 'min(1100px, 94vw)', flexWrap: 'wrap' }}>
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto', marginRight: '8px' }}>
+      <div className="hero-inner" style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '32px', padding: '0px 0px', width: 'min(1100px, 94vw)', flexWrap: 'wrap' }}>
+        <div className="hero-logo-wrap" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto', marginRight: '8px' }}>
           {/* Left blur */}
           <div
             aria-hidden="true"
@@ -84,7 +85,7 @@ const Hero = () => {
             <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#ffbd2e', display: 'inline-block' }} />
             <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#27c93f', display: 'inline-block' }} />
           </div>
-          <pre style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: 1.8, fontSize: 'clamp(13px, 2.5vw, 15px)' }}>
+          <pre style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: 1.8, fontSize: 'clamp(13px, 2.8vw, 16px)' }}>
             {`Since its inception, the ACES club has been a vibrant hub for students passionate about computer science and engineering. The club actively organizes a variety of technical, competitive, and collaborative events.nologies, guest lectures, and collaborative projects.
 
 Faculty Advisor: `}
@@ -94,6 +95,19 @@ Faculty Advisor: `}
           </pre>
         </div>
       </div>
+      <style>{`
+        /* Hero responsiveness */
+        @media (max-width: 1024px) {
+          .hero-inner { gap: 24px; }
+        }
+        @media (max-width: 768px) {
+          .hero-inner { flex-direction: column; align-items: center; justify-content: center; }
+          .hero-logo-wrap { margin-right: 0; }
+        }
+        @media (max-width: 480px) {
+          .hero-container { padding: 88px 12px 32px; }
+        }
+      `}</style>
     </div>
   );
 };

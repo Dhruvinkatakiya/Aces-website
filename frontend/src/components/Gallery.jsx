@@ -1,4 +1,11 @@
 import React from 'react'
+import LazyImage from './LazyImage'
+import img1 from '../assets/gallery/1.jpg'
+import img2 from '../assets/gallery/2.jpg'
+import img3 from '../assets/gallery/3.jpg'
+import img4 from '../assets/gallery/4.jpg'
+import img5 from '../assets/gallery/5.jpg'
+import img6 from '../assets/gallery/6.jpg'
 import arrowImage from '../assets/arrow.png'
 
 function Gallery() {
@@ -7,37 +14,37 @@ function Gallery() {
     {
       id: 1,
       title: "Innovators Assemble",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=400&fit=crop",
+      image: img1,
       category: "insignia"
     },
     {
       id: 2,
       title: "Infinity Code Quest",
-      image: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=400&fit=crop",
+      image: img2,
       category: "insignia"
     },
     {
       id: 3,
       title: "The Ultron Debate",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=400&fit=crop",
+      image: img3,
       category: "insignia"
     },
     {
       id: 4,
       title: "Marvel Tech Trivia",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=400&fit=crop",
+      image: img4,
       category: "insignia"
     },
     {
       id: 5,
       title: "Escape the Multiverse",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=400&fit=crop",
+      image: img5,
       category: "insignia"
     },
     {
       id: 6,
       title: "Open Mic Jamming",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=400&fit=crop",
+      image: img6,
       category: "insignia"
     }
   ]
@@ -49,7 +56,7 @@ function Gallery() {
         width: '100%',
         minHeight: '100vh',
         backgroundColor: '#0f101d',
-        padding: '80px 0',
+        padding: '64px 0',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -57,7 +64,7 @@ function Gallery() {
       {/* Header Section */}
       <div style={{ textAlign: 'center', marginBottom: '60px', position: 'relative', zIndex: 10 }}>
         <h2 className="heading-gradient" style={{
-          fontSize: '3rem',
+          fontSize: 'clamp(2rem, 4vw, 3rem)',
           fontWeight: 800,
           margin: '0 0 20px 0',
           letterSpacing: '1.5px'
@@ -76,10 +83,10 @@ function Gallery() {
       </div>
 
       {/* Gallery Content */}
-      <div style={{
-        maxWidth: '1200px',
+        <div style={{
+          maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 20px',
+          padding: '0 16px',
         position: 'relative',
         zIndex: 10
       }}>
@@ -89,7 +96,7 @@ function Gallery() {
           textAlign: 'left'
         }}>
           <h3 className="heading-gradient" style={{
-            fontSize: '2.2rem',
+            fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
             fontWeight: 800,
             margin: '0',
             letterSpacing: '1px'
@@ -99,10 +106,9 @@ function Gallery() {
         </div>
 
         {/* Gallery Grid */}
-        <div style={{
+        <div className="gallery-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '28px',
+          gap: '24px',
           justifyContent: 'center'
         }}>
           {galleryItems.map((item) => (
@@ -127,18 +133,16 @@ function Gallery() {
             >
               {/* Image Placeholder */}
               <div style={{
-                width: 'min(260px, 80vw)',
-                height: 'min(260px, 80vw)',
+                width: 'min(240px, 90vw)',
+                height: 'min(240px, 90vw)',
                 borderRadius: '15px',
-                background: `linear-gradient(135deg, rgba(0, 229, 255, 0.10) 0%, rgba(10, 21, 55, 0.12) 100%), url(${item.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
                 border: '2px solid rgba(0, 229, 255, 0.25)',
                 boxShadow: '0 8px 32px rgba(0, 229, 255, 0.18)',
                 position: 'relative',
                 overflow: 'hidden',
                 marginBottom: '20px'
               }}>
+                <LazyImage src={item.image} alt={item.title} width="100%" height="100%" />
                 {/* Hover overlay */}
                 <div style={{
                   position: 'absolute',
@@ -175,17 +179,17 @@ function Gallery() {
               {/* Curved Arrow and Title aligned under card */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: '40px 1fr',
+                gridTemplateColumns: '32px 1fr',
                 alignItems: 'center',
-                gap: '12px',
-                width: '260px'
+                gap: '10px',
+                width: 'min(260px, 90vw)'
               }}>
                 <img
                   src={arrowImage}
                   alt="Arrow"
                   style={{
-                    width: '36px',
-                    height: '36px',
+                    width: '28px',
+                    height: '28px',
                     objectFit: 'contain',
                     transform: 'translateY(4px)'
                   }}
@@ -196,7 +200,8 @@ function Gallery() {
                     fontWeight: 700,
                     letterSpacing: '0.5px',
                     textTransform: 'uppercase',
-                    lineHeight: 1.15
+                    lineHeight: 1.15,
+                    fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
                   }}>{item.title}</span>
                 </div>
               </div>
@@ -233,6 +238,17 @@ function Gallery() {
           </div>
         </div>
       </div>
+      <style>{`
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        @media (min-width: 480px) {
+          .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+        }
+        @media (min-width: 768px) {
+          .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+        }
+      `}</style>
     </section>
   )
 }
