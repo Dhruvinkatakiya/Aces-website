@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Events() {
+  const navigate = useNavigate()
   const [activeFilter, setActiveFilter] = useState('all')
   const [isVisible, setIsVisible] = useState(false)
   const [animatedCards, setAnimatedCards] = useState(new Set())
@@ -17,27 +19,28 @@ function Events() {
       id: 1,
       title: "Summer Internship Insights",
       date: "21 August, 2024",
-      time: "9:00 AM - 6:00 PM",
-      location: "ITNU Campus",
-      description: "Join us for an exciting 48-hour coding competition where students showcase their programming skills and innovative ideas.", image: "",
+      time: "2:35 AM - 4:30 PM",
+      location: "C-Auditorium",
+      description: "Join us for an exciting 48-hour coding competition where students showcase their programming skills and innovative ideas.",
+      image: "",
       status: "completed"
     },
     {
       id: 2,
-      title: "Startup Talk",
+      title: "Founder's Playbook",
       date: "March 10, 2024",
       time: "2:00 PM - 4:00 PM",
-      location: "Auditorium A",
-      description: "Learn about the latest trends in Artificial Intelligence and Machine Learning from industry experts.",
+      location: "ITNU Campus",
+      description: "Industry insigts from experts, network with professionals, boost career growth and knowledge.",
       image: "",
       status: "completed"
     },
     {
       id: 3,
       title: "Insignia 2024",
-      date: "February 20-25, 2024",
+      date: "February 15-16, 2024",
       time: "10:00 AM - 5:00 PM",
-      location: "Computer Lab 1",
+      location: "ITNU Campus",
       description: "Intensive coding bootcamp covering web development, data structures, and algorithms.",
       image: "",
       status: "completed"
@@ -49,28 +52,8 @@ function Events() {
       time: "6:00 PM - 9:00 PM",
       location: "Main Hall",
       description: "Annual gathering of ACES members with networking, food, and celebration of achievements.",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=300&fit=crop",
+      image: "",
       status: "completed"
-    },
-    {
-      id: 5,
-      title: "Web Development Workshop",
-      date: "April 5, 2024",
-      time: "1:00 PM - 5:00 PM",
-      location: "Lab 2",
-      description: "Hands-on workshop covering modern web development technologies including React, Node.js, and databases.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
-      status: "upcoming"
-    },
-    {
-      id: 6,
-      title: "CTF Competition",
-      date: "April 20, 2024",
-      time: "10:00 AM - 6:00 PM",
-      location: "Online",
-      description: "Capture The Flag cybersecurity competition testing your hacking and security skills.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop",
-      status: "upcoming"
     }
   ]
 
@@ -200,6 +183,7 @@ function Events() {
             <div
               key={event.id}
               className="event-card"
+              onClick={() => navigate(`/events/${event.id}`)}
               style={{
                 background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
                 borderRadius: '24px',
@@ -427,23 +411,28 @@ function Events() {
                   {event.description}
                 </p>
 
-                <button style={{
-                  width: '100%',
-                  padding: '14px 20px',
-                  borderRadius: '12px',
-                  border: '2px solid #00E5FF',
-                  background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)',
-                  color: '#00E5FF',
-                  fontSize: 'clamp(13px, 2.3vw, 14px)',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0, 229, 255, 0.2)'
-                }}
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    navigate(`/events/${event.id}`)
+                  }}
+                  style={{
+                    width: '100%',
+                    padding: '14px 20px',
+                    borderRadius: '12px',
+                    border: '2px solid #00E5FF',
+                    background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)',
+                    color: '#00E5FF',
+                    fontSize: 'clamp(13px, 2.3vw, 14px)',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    boxShadow: '0 4px 15px rgba(0, 229, 255, 0.2)'
+                  }}
                   onMouseEnter={(e) => {
                     e.target.style.background = 'linear-gradient(135deg, #00E5FF 0%, #0099CC 100%)'
                     e.target.style.color = '#0f101d'
@@ -493,16 +482,19 @@ function Events() {
 
   /* Responsive grid */
   .events-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  }
-  @media (min-width: 480px) {
-    .events-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    grid-template-columns: 1fr; /* Single column for mobile */
   }
   @media (min-width: 768px) {
-    .events-grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); }
+    .events-grid { 
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for laptop screens */
+      gap: 30px;
+    }
   }
-  @media (min-width: 1024px) {
-    .events-grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+  @media (min-width: 1200px) {
+    .events-grid { 
+      grid-template-columns: repeat(2, 1fr); /* Keep 2 columns for larger screens */
+      gap: 40px;
+    }
   }
 
   @keyframes creativePopIn {

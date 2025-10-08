@@ -108,7 +108,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50" style={{ padding: '20px 0 0px 0' }}>
+      <nav className="fixed top-0 left-0 w-full z-50" style={{ padding: '20px clamp(10px, 5vw, 40px) 0px clamp(10px, 5vw, 40px)' }}>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Subtle blue glow behind navbar */}
           <div className="pointer-events-none absolute inset-0 -z-10">

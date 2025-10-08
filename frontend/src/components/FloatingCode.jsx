@@ -1,148 +1,153 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, memo } from 'react';
 
+// Memoized random position generator
 const getRandomPosition = () => {
-  // x and y can be anywhere from 0% to 100%
   const x = Math.random() * 100;
   const y = Math.random() * 100;
   return { x, y };
 };
 
-const FloatingCode = () => {
-  const [codeSnippets, setCodeSnippets] = useState([]);
-
-  // Generate positions for each snippet
-  const codeData = [
-    {
-      id: 1,
-      content: `// ACES Core
+// Memoized code snippets data
+const CODE_DATA = [
+  {
+    id: 1,
+    content: `// ACES Core
 const aces = {
   name: "ACES",
   vision: "Excellence"
 }`,
-      delay: 0,
-      duration: 8
-    },
-    {
-      id: 2,
-      content: `function innovate() {
+    delay: 0,
+    duration: 8
+  },
+  {
+    id: 2,
+    content: `function innovate() {
   return future
 }`,
-      delay: 1,
-      duration: 10
-    },
-    {
-      id: 3,
-      content: `console.log("ACES")`,
-      delay: 2,
-      duration: 7
-    },
-    {
-      id: 4,
-      content: `# Engineering
+    delay: 1,
+    duration: 10
+  },
+  {
+    id: 3,
+    content: `console.log("ACES")`,
+    delay: 2,
+    duration: 7
+  },
+  {
+    id: 4,
+    content: `# Engineering
 class Engineer {
   def solve()
   return "Solution"
 }`,
-      delay: 3,
-      duration: 9
-    },
-    {
-      id: 5,
-      content: `# ACES = Innovation`,
-      delay: 1.5,
-      duration: 6
-    },
-    {
-      id: 6,
-      content: `if (passion) {
+    delay: 3,
+    duration: 9
+  },
+  {
+    id: 5,
+    content: `# ACES = Innovation`,
+    delay: 1.5,
+    duration: 6
+  },
+  {
+    id: 6,
+    content: `if (passion) {
   success = true
 }`,
-      delay: 2.5,
-      duration: 8.5
-    },
-    {
-      id: 7,
-      content: `npm run aces
+    delay: 2.5,
+    duration: 8.5
+  },
+  {
+    id: 7,
+    content: `npm run aces
 ✓ Building future...
 $ git commit -m "Innovation"`,
-      delay: 4,
-      duration: 11
-    },
-    {
-      id: 8,
-      content: `const excellence = true`,
-      delay: 0.5,
-      duration: 7.5
-    },
-    {
-      id: 9,
-      content: `// Innovation Hub
+    delay: 4,
+    duration: 11
+  },
+  {
+    id: 8,
+    content: `const excellence = true`,
+    delay: 0.5,
+    duration: 7.5
+  },
+  {
+    id: 9,
+    content: `// Innovation Hub
 const creativity = {
   level: "max",
   impact: "global"
 }`,
-      delay: 3.5,
-      duration: 9.5
-    },
-    {
-      id: 10,
-      content: `def build_future():
+    delay: 3.5,
+    duration: 9.5
+  },
+  {
+    id: 10,
+    content: `def build_future():
     return "ACES"`,
-      delay: 1.8,
-      duration: 8.2
-    },
-    {
-      id: 11,
-      content: `// Code Excellence
+    delay: 1.8,
+    duration: 8.2
+  },
+  {
+    id: 11,
+    content: `// Code Excellence
 const passion = true`,
-      delay: 2.2,
-      duration: 7.8
-    },
-    {
-      id: 12,
-      content: `class Future {
+    delay: 2.2,
+    duration: 7.8
+  },
+  {
+    id: 12,
+    content: `class Future {
   build() {
     return "ACES"
   }
 }`,
-      delay: 1.2,
-      duration: 9.2
-    },
-    {
-      id: 13,
-      content: `# Tech Innovation
+    delay: 1.2,
+    duration: 9.2
+  },
+  {
+    id: 13,
+    content: `# Tech Innovation
 def create() {
   return "Excellence"
 }`,
-      delay: 3.8,
-      duration: 8.8
-    },
-    {
-      id: 14,
-      content: `const innovation = {
+    delay: 3.8,
+    duration: 8.8
+  },
+  {
+    id: 14,
+    content: `const innovation = {
   level: "maximum",
   impact: "global"
 }`,
-      delay: 0.8,
-      duration: 10.5
-    },
-    {
-      id: 15,
-      content: `// Engineering
+    delay: 0.8,
+    duration: 10.5
+  },
+  {
+    id: 15,
+    content: `// Engineering
 function solve() {
   return "Solution"
 }`,
-      delay: 4.2,
-      duration: 7.2
-    }
-  ].map(snippet => ({
-    ...snippet,
-    ...getRandomPosition()
-  }));
+    delay: 4.2,
+    duration: 7.2
+  }
+];
+
+const FloatingCode = memo(() => {
+  const [codeSnippets, setCodeSnippets] = useState([]);
+
+  // Memoize code snippets with positions
+  const codeSnippetsWithPositions = useMemo(() => {
+    return CODE_DATA.map(snippet => ({
+      ...snippet,
+      ...getRandomPosition()
+    }));
+  }, []);
 
   useEffect(() => {
-    setCodeSnippets(codeData);
-  }, []);
+    setCodeSnippets(codeSnippetsWithPositions);
+  }, [codeSnippetsWithPositions]);
 
   return (
     <div style={{
@@ -183,7 +188,7 @@ function solve() {
         </div>
       ))}
 
-      <style jsx>{`
+      <style jsx="true">{`
         @keyframes float {
           0% {
             transform: translate(-50%, -50%) translateY(0px) scale(1) rotate(0deg);
@@ -209,6 +214,6 @@ function solve() {
       `}</style>
     </div>
   );
-};
+});
 
 export default FloatingCode;

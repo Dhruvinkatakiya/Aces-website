@@ -28,6 +28,9 @@ export default function useCachedImage(src, options = {}) {
       // localStorage may be unavailable (quota/SSR)
     }
 
+    // Run only in browser environments
+    if (typeof window === 'undefined') return
+
     ;(async () => {
       try {
         const res = await fetch(src, { cache: 'force-cache' })
@@ -37,7 +40,7 @@ export default function useCachedImage(src, options = {}) {
         let dataUrl = await toDataUrl(blob)
 
         // Try to compress via canvas if it's an image and larger than maxBytes
-        if (dataUrl.length > maxBytes && blob.type.startsWith('image/')) {
+        if (dataUrl.length > maxBytes && blob.type && blob.type.startsWith('image/')) {
           const img = document.createElement('img')
           const loaded = new Promise((resolve, reject) => {
             img.onload = resolve

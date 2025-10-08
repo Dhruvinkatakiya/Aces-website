@@ -1,25 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import useCachedImage from '../hooks/useCachedImage'
-import jayAvatar from '../assets/boardteam/Jay Patel.png'
-import kathanAvatar from '../assets/boardteam/Kathan Panchal.png'
-import tvishaAvatar from '../assets/boardteam/Tvisha Patel.png'
-import sarahAvatar from '../assets/boardteam/Sarah Saiyed.png'
-import sahilAvatar from '../assets/boardteam/Sahil Bokhani.png'
-import mahekAvatar from '../assets/boardteam/Mahek Mehta.png'
-import chinmayAvatar from '../assets/boardteam/Chinmay Kela.png'
-import snehAvatar from '../assets/boardteam/Sneh Patel.png'
-import rudraAvatar from '../assets/boardteam/Rudra Naik.png'
-import dhruvinAvatar from '../assets/boardteam/Dhruvin Katakiya.png'
-import keshiniAvatar from '../assets/boardteam/Keshini Trivedi.png'
-import nikhilAvatar from '../assets/boardteam/Nikhil Raval.png'
-import aakanshaAvatar from '../assets/boardteam/Aakansha Rajpal.png'
-import aayushAvatar from '../assets/boardteam/Aayush Patel.png'
+
 
 const teamMembers = [
   {
     name: 'Jay Patel',
     role: 'President',
-    avatar: jayAvatar,
+    avatar: 'https://i.postimg.cc/wBD3dRds/Jay-Patel.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/jayypatel18/'
     },
@@ -27,7 +14,7 @@ const teamMembers = [
   {
     name: 'Kathan Panchal',
     role: 'Vice President',
-    avatar: kathanAvatar,
+    avatar: 'https://i.postimg.cc/rpb6gQHZ/Kathan-Panchal.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/kathan-panchal-2894a924a/',
     },
@@ -35,7 +22,7 @@ const teamMembers = [
   {
     name: 'Twisha Patel',
     role: 'General Secretary',
-    avatar: tvishaAvatar,
+    avatar: 'https://i.postimg.cc/fbqT5Dc8/Tvisha-Patel.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tvisha-patel-028816258/',
     },
@@ -43,7 +30,7 @@ const teamMembers = [
   {
     name: 'Sarah Saiyed',
     role: 'Joint Secretary',
-    avatar: sarahAvatar,
+    avatar: 'https://i.postimg.cc/sxmwH2Xg/Sarah-Saiyed.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/sarah-saiyed0/',
     },
@@ -51,7 +38,7 @@ const teamMembers = [
   {
     name: 'Sahil Bokhani',
     role: 'Organizing Secretary',
-    avatar: sahilAvatar,
+    avatar: 'https://i.postimg.cc/FHmRHPF4/Sahil-Bokhani.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/sahil-bokhani-196006251/',
     },
@@ -59,7 +46,7 @@ const teamMembers = [
   {
     name: 'Mahek Mehta',
     role: 'Managing Director',
-    avatar: mahekAvatar,
+    avatar: 'https://i.postimg.cc/YCqJH5Kf/Mahek-Mehta.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/mahek-mehta-b11735231/',
     },
@@ -67,7 +54,7 @@ const teamMembers = [
   {
     name: 'Chinmay Kela',
     role: 'Director General',
-    avatar: chinmayAvatar,
+    avatar: 'https://i.postimg.cc/x1JctFxG/Chinmay-Kela.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/chinmay-kela-3651ba272/',
     },
@@ -75,7 +62,7 @@ const teamMembers = [
   {
     name: 'Sneh Patel',
     role: 'Treasurer',
-    avatar: snehAvatar,
+    avatar: 'https://i.postimg.cc/90bJgfMw/Sneh-Patel.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/snehpatel2510/',
     },
@@ -83,7 +70,7 @@ const teamMembers = [
   {
     name: 'Rudra Naik',
     role: 'Logistic Head',
-    avatar: rudraAvatar,
+    avatar: 'https://i.postimg.cc/qv5ZdgGR/Rudra-Naik.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/rudy7404/',
     },
@@ -91,7 +78,7 @@ const teamMembers = [
   {
     name: 'Dhruvin Katakiya',
     role: 'Technical Head',
-    avatar: dhruvinAvatar,
+    avatar: 'https://i.postimg.cc/d3rsqCzN/Dhruvin-Katakiya.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/dhruvin-katakiya/',
     },
@@ -99,7 +86,7 @@ const teamMembers = [
   {
     name: 'Keishini Trivedi',
     role: 'Social Media Head',
-    avatar: keshiniAvatar,
+    avatar: 'https://i.postimg.cc/G3v0JPxf/Keshini-Trivedi.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/keshini-trivedi/',
     },
@@ -107,7 +94,7 @@ const teamMembers = [
   {
     name: 'Nikhil Raval',
     role: 'Editor Head',
-    avatar: nikhilAvatar,
+    avatar: 'https://i.postimg.cc/GtKqgpp5/Nikhil-Raval.png',
     socials: {
       linkedin: 'https://www.linkedin.com/in/nikhil-raval-2a89ab293/',
     },
@@ -115,7 +102,7 @@ const teamMembers = [
   {
     name: 'Aakanksha Rajpal',
     role: 'Creative Head',
-    avatar: aakanshaAvatar,
+    avatar: 'https://i.postimg.cc/2SrCB9pC/Aakansha-Rajpal.png',
     socials: {
       linkedin: '#',
     },
@@ -123,7 +110,7 @@ const teamMembers = [
   {
     name: 'Aayush Patel',
     role: 'Graphic Head',
-    avatar: aayushAvatar,
+    avatar: 'https://i.postimg.cc/vZsZtHnc/Aayush-Patel.png',
     socials: {
       linkedin: '#',
     },

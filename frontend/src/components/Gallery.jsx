@@ -1,50 +1,61 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import LazyImage from './LazyImage'
-import img1 from '../assets/gallery/1.jpg'
-import img2 from '../assets/gallery/2.jpg'
-import img3 from '../assets/gallery/3.jpg'
-import img4 from '../assets/gallery/4.jpg'
-import img5 from '../assets/gallery/5.jpg'
-import img6 from '../assets/gallery/6.jpg'
 import arrowImage from '../assets/arrow.png'
 
 function Gallery() {
-  // Gallery items data
-  const galleryItems = [
+  const navigate = useNavigate()
+  
+  // Main events data
+  const mainEvents = [
+    {
+      id: 101,
+      title: "Summer Internship Insights",
+      image: "https://i.postimg.cc/pTXRrqS4/Summer-Internship-Insights.jpg",
+    },
+    {
+      id: 102,
+      title: "Founder's Playbook",
+      image: "https://i.postimg.cc/FRsNzD6q/Founders-Playbook.jpg",
+    },
+  ]
+  
+  // Insignia sub-events data
+  const insigniaEvents = [
     {
       id: 1,
       title: "Innovators Assemble",
-      image: img1,
+      image: 'https://i.postimg.cc/d3gYWvVS/Innovators-Assemble.jpg',
       category: "insignia"
     },
     {
       id: 2,
       title: "Infinity Code Quest",
-      image: img2,
+      image: 'https://i.postimg.cc/BbR0hsv3/Infinity-Code-Quest.jpg',
       category: "insignia"
     },
     {
       id: 3,
       title: "The Ultron Debate",
-      image: img3,
+      image: 'https://i.postimg.cc/SQPkQLfR/The-Ultron-Debate.jpg',
       category: "insignia"
     },
     {
       id: 4,
       title: "Marvel Tech Trivia",
-      image: img4,
+      image: 'https://i.postimg.cc/pr3H0xdH/Marvel-Tech-Trivia.jpg',
       category: "insignia"
     },
     {
       id: 5,
       title: "Escape the Multiverse",
-      image: img5,
+      image: 'https://i.postimg.cc/wMnpWHjV/Escape-The-Multiverse.jpg',
       category: "insignia"
     },
     {
       id: 6,
       title: "Open Mic Jamming",
-      image: img6,
+      image: 'https://i.postimg.cc/Y2PM2NzS/Open-Mic-Jamming.jpg',
       category: "insignia"
     }
   ]
@@ -56,13 +67,13 @@ function Gallery() {
         width: '100%',
         minHeight: '100vh',
         backgroundColor: '#0f101d',
-        padding: '64px 0',
+        padding: '80px 0 40px',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
       {/* Header Section */}
-      <div style={{ textAlign: 'center', marginBottom: '60px', position: 'relative', zIndex: 10 }}>
+      <div style={{ textAlign: 'center', marginBottom: '40px', position: 'relative', zIndex: 10 }}>
         <h2 className="heading-gradient" style={{
           fontSize: 'clamp(2rem, 4vw, 3rem)',
           fontWeight: 800,
@@ -83,14 +94,14 @@ function Gallery() {
       </div>
 
       {/* Gallery Content */}
-        <div style={{
-          maxWidth: '1200px',
+      <div style={{
+        maxWidth: '1200px',
         margin: '0 auto',
-          padding: '0 16px',
+        padding: '0 16px',
         position: 'relative',
         zIndex: 10
       }}>
-        {/* Section Title */}
+        {/* Main Events Section */}
         <div style={{
           marginBottom: '40px',
           textAlign: 'left'
@@ -101,17 +112,19 @@ function Gallery() {
             margin: '0',
             letterSpacing: '1px'
           }}>
-            Insignia
+            Events
           </h3>
         </div>
 
-        {/* Gallery Grid */}
+        {/* Main Events Gallery Grid */}
         <div className="gallery-grid" style={{
           display: 'grid',
-          gap: '24px',
-          justifyContent: 'center'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '40px',
+          justifyContent: 'center',
+          padding: '0 20px'
         }}>
-          {galleryItems.map((item) => (
+          {mainEvents.map((item) => (
             <div
               key={item.id}
               style={{
@@ -122,19 +135,28 @@ function Gallery() {
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 transformStyle: 'preserve-3d',
-                animation: 'tiltFloat 4s ease-in-out infinite'
+                animation: 'tiltFloat 6s ease-in-out infinite'
               }}
               onMouseOver={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px)'
+                e.currentTarget.style.transform = 'translateY(-5px) rotate(2deg)'
+                e.currentTarget.style.animation = 'none'
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.transform = 'translateY(0) rotate(0)'
+                e.currentTarget.style.animation = 'tiltFloat 6s ease-in-out infinite'
+              }}
+              onClick={() => {
+                // Use the correct slug format that matches galleryEvents.js
+                const slug = item.category ? 
+                  `${item.category}-${item.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}` : 
+                  `${item.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}`
+                navigate(`/gallery/${slug}`)
               }}
             >
-              {/* Image Placeholder */}
+              {/* Image Container */}
               <div style={{
-                width: 'min(240px, 90vw)',
-                height: 'min(240px, 90vw)',
+                width: 'min(300px, 90vw)',
+                height: 'auto',
                 borderRadius: '15px',
                 border: '2px solid rgba(0, 229, 255, 0.25)',
                 boxShadow: '0 8px 32px rgba(0, 229, 255, 0.18)',
@@ -142,7 +164,16 @@ function Gallery() {
                 overflow: 'hidden',
                 marginBottom: '20px'
               }}>
-                <LazyImage src={item.image} alt={item.title} width="100%" height="100%" />
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }} 
+                />
                 {/* Hover overlay */}
                 <div style={{
                   position: 'absolute',
@@ -171,9 +202,11 @@ function Gallery() {
                     textTransform: 'uppercase',
                     letterSpacing: '1px'
                   }}>
-                    View Details
+                    View Gallery
                   </div>
                 </div>
+                
+                
               </div>
 
               {/* Curved Arrow and Title aligned under card */}
@@ -194,24 +227,164 @@ function Gallery() {
                     transform: 'translateY(4px)'
                   }}
                 />
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span style={{
-                    color: 'var(--color-cyan)',
-                    fontWeight: 700,
-                    letterSpacing: '0.5px',
-                    textTransform: 'uppercase',
-                    lineHeight: 1.15,
-                    fontSize: 'clamp(0.9rem, 2.5vw, 1rem)'
-                  }}>{item.title}</span>
-                </div>
+                <span style={{
+                  color: '#ffffff',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  lineHeight: '1.2'
+                }}>{item.title}</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Additional Gallery Sections */}
+        {/* Insignia Events Section */}
+        <div style={{
+          marginTop: '80px',
+          marginBottom: '40px',
+          textAlign: 'left'
+        }}>
+          <h3 className="heading-gradient" style={{
+            fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)',
+            fontWeight: 800,
+            margin: '0',
+            letterSpacing: '1px'
+          }}>
+            Insignia
+          </h3>
+          <p style={{ color: 'rgba(255, 255, 255, 0.7)', marginTop: '10px' }}>
+            Our flagship event with 6 exciting sub-events
+          </p>
+        </div>
+
+        {/* Insignia Events Gallery Grid */}
+        <div className="gallery-grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+          gap: '40px',
+          justifyContent: 'center',
+          padding: '0 20px'
+        }}>
+          {insigniaEvents.map((item) => (
+            <div
+              key={item.id}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                position: 'relative',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                transformStyle: 'preserve-3d',
+                animation: 'tiltFloat 6s ease-in-out infinite'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = 'translateY(-5px) rotate(2deg)'
+                e.currentTarget.style.animation = 'none'
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = 'translateY(0) rotate(0)'
+                e.currentTarget.style.animation = 'tiltFloat 6s ease-in-out infinite'
+              }}
+              onClick={() => {
+                // Use the correct slug format that matches galleryEvents.js
+                const slug = item.category ? 
+                  `${item.category}-${item.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}` : 
+                  `${item.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}`
+                navigate(`/gallery/${slug}`)
+              }}
+            >
+              {/* Image Container */}
+              <div style={{
+                width: 'min(300px, 90vw)',
+                height: 'auto',
+                borderRadius: '15px',
+                border: '2px solid rgba(0, 229, 255, 0.25)',
+                boxShadow: '0 8px 32px rgba(0, 229, 255, 0.18)',
+                position: 'relative',
+                overflow: 'hidden',
+                marginBottom: '20px'
+              }}>
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }} 
+                />
+                {/* Hover overlay */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.22) 0%, rgba(10, 21, 55, 0.22) 100%)',
+                  opacity: 0,
+                  transition: 'opacity 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.opacity = '1'
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.opacity = '0'
+                }}
+                >
+                  <div style={{
+                    color: '#ffffff',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    textTransform: 'uppercase',
+                    letterSpacing: '1px'
+                  }}>
+                    View Gallery
+                  </div>
+                </div>
+                
+              
+              </div>
+
+              {/* Curved Arrow and Title aligned under card */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: '32px 1fr',
+                alignItems: 'center',
+                gap: '10px',
+                width: 'min(260px, 90vw)'
+              }}>
+                <img
+                  src={arrowImage}
+                  alt="Arrow"
+                  style={{
+                    width: '28px',
+                    height: '28px',
+                    objectFit: 'contain',
+                    transform: 'translateY(4px)'
+                  }}
+                />
+                <span style={{
+                  color: '#ffffff',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px',
+                  lineHeight: '1.2'
+                }}>{item.title}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* More Coming Soon Section */}
         <div style={{ marginTop: '80px' }}>
-          {/* Future sections can be added here */}
           <div style={{
             textAlign: 'center',
             padding: '40px 20px',
@@ -247,6 +420,11 @@ function Gallery() {
         }
         @media (min-width: 768px) {
           .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+        }
+        @keyframes tiltFloat {
+          0%, 100% { transform: translateY(0) rotate(0); }
+          25% { transform: translateY(-5px) rotate(1deg); }
+          75% { transform: translateY(5px) rotate(-1deg); }
         }
       `}</style>
     </section>
