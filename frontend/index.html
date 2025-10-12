@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+<<<<<<< HEAD
+  
+  <!-- Primary Meta Tags -->
+  <title>ACES - Association of Computer Engineering Students</title>
+  <meta name="title" content="ACES - Association of Computer Engineering Students">
+  <meta name="description" content="Official website of ACES - Association of Computer Engineering Students at ITNU. Join us for exciting events, workshops, and competitions.">
+  <meta name="keywords" content="ACES, Computer Engineering, ITNU, Students, Events, Workshops, Technology, Programming">
+  <meta name="author" content="ACES Team">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Viewport and Mobile Optimization -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ACES">
+  
+  <!-- Theme and Colors -->
+  <meta name="theme-color" content="#00E5FF">
+  <meta name="msapplication-TileColor" content="#0f101d">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aces-itnu.com/">
+  <meta property="og:title" content="ACES - Association of Computer Engineering Students">
+  <meta property="og:description" content="Official website of ACES - Association of Computer Engineering Students at ITNU. Join us for exciting events, workshops, and competitions.">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="ACES">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aces-itnu.com/">
+  <meta property="twitter:title" content="ACES - Association of Computer Engineering Students">
+  <meta property="twitter:description" content="Official website of ACES - Association of Computer Engineering Students at ITNU. Join us for exciting events, workshops, and competitions.">
+  <meta property="twitter:image" content="/twitter-image.png">
+  
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/logo.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- DNS Prefetch and Preconnect -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Critical CSS Inline -->
+  <style>
+    /* Critical CSS for initial render */
+    * { box-sizing: border-box; }
+    body { 
+      margin: 0; 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      background-color: #0f101d;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    #root { min-height: 100vh; }
+    .loading-spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f101d 0%, #1a1a2e 100%);
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(0, 229, 255, 0.3);
+      border-top: 3px solid #00E5FF;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="/src/main.jsx" as="script" crossorigin>
+  
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  
+  <!-- Performance Hints -->
+  <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+  <meta name="format-detection" content="telephone=no">
+</head>
+
+<body>
+  <div id="root">
+    <!-- Loading fallback -->
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+  
+=======
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <title>ACES</title>
+</head>
+
+<body>
+  <div id="root"></div>
+>>>>>>> 6ce4b2a (first commit)
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
