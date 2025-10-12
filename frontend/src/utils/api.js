@@ -2,8 +2,8 @@
  * API utility file for managing API URLs and common fetch operations
  */
 
-// API URL configuration - uses environment variable or fallback to Vercel deployment
-export const API_URL = import.meta.env.VITE_API_URL || 'https://aces-website-one.vercel.app/api';
+// API URL configuration - uses environment variable or fallback to Render backend deployment
+export const API_URL = import.meta.env.VITE_API_URL || 'https://aces-backend.onrender.com';
 
 /**
  * Helper function for making API requests
