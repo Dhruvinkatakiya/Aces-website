@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
-<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom'
 
 function Events() {
   const navigate = useNavigate()
-=======
-
-function Events() {
->>>>>>> 6ce4b2a (first commit)
   const [activeFilter, setActiveFilter] = useState('all')
   const [isVisible, setIsVisible] = useState(false)
   const [animatedCards, setAnimatedCards] = useState(new Set())
@@ -23,50 +18,29 @@ function Events() {
     {
       id: 1,
       title: "Summer Internship Insights",
-<<<<<<< HEAD
       date: "21 August, 2024",
       time: "2:35 AM - 4:30 PM",
       location: "C-Auditorium",
       description: "Join us for an exciting 48-hour coding competition where students showcase their programming skills and innovative ideas.",
       image: "",
-=======
-      date: "March 15-17, 2024",
-      time: "9:00 AM - 6:00 PM",
-      location: "ITNU Campus",
-      description: "Join us for an exciting 48-hour coding competition where students showcase their programming skills and innovative ideas.", image: "",
->>>>>>> 6ce4b2a (first commit)
       status: "completed"
     },
     {
       id: 2,
-<<<<<<< HEAD
       title: "Founder's Playbook",
       date: "March 10, 2024",
       time: "2:00 PM - 4:00 PM",
       location: "ITNU Campus",
       description: "Industry insigts from experts, network with professionals, boost career growth and knowledge.",
-=======
-      title: "Startup Talk",
-      date: "March 10, 2024",
-      time: "2:00 PM - 4:00 PM",
-      location: "Auditorium A",
-      description: "Learn about the latest trends in Artificial Intelligence and Machine Learning from industry experts.",
->>>>>>> 6ce4b2a (first commit)
       image: "",
       status: "completed"
     },
     {
       id: 3,
       title: "Insignia 2024",
-<<<<<<< HEAD
       date: "February 15-16, 2024",
       time: "10:00 AM - 5:00 PM",
       location: "ITNU Campus",
-=======
-      date: "February 20-25, 2024",
-      time: "10:00 AM - 5:00 PM",
-      location: "Computer Lab 1",
->>>>>>> 6ce4b2a (first commit)
       description: "Intensive coding bootcamp covering web development, data structures, and algorithms.",
       image: "",
       status: "completed"
@@ -78,33 +52,8 @@ function Events() {
       time: "6:00 PM - 9:00 PM",
       location: "Main Hall",
       description: "Annual gathering of ACES members with networking, food, and celebration of achievements.",
-<<<<<<< HEAD
       image: "",
       status: "completed"
-=======
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=300&fit=crop",
-      status: "completed"
-    },
-    {
-      id: 5,
-      title: "Web Development Workshop",
-      date: "April 5, 2024",
-      time: "1:00 PM - 5:00 PM",
-      location: "Lab 2",
-      description: "Hands-on workshop covering modern web development technologies including React, Node.js, and databases.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
-      status: "upcoming"
-    },
-    {
-      id: 6,
-      title: "CTF Competition",
-      date: "April 20, 2024",
-      time: "10:00 AM - 6:00 PM",
-      location: "Online",
-      description: "Capture The Flag cybersecurity competition testing your hacking and security skills.",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop",
-      status: "upcoming"
->>>>>>> 6ce4b2a (first commit)
     }
   ]
 
@@ -124,10 +73,7 @@ function Events() {
   return (
     <section
       id="events"
-<<<<<<< HEAD
       className="events-section"
-=======
->>>>>>> 6ce4b2a (first commit)
       style={{
         width: '100%',
         minHeight: '100vh',
@@ -227,14 +173,8 @@ function Events() {
         position: 'relative',
         zIndex: 10
       }}>
-<<<<<<< HEAD
         <div className="events-grid" style={{
           display: 'grid',
-=======
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
->>>>>>> 6ce4b2a (first commit)
           gap: '30px',
           justifyContent: 'center',
           alignItems: 'start'
@@ -243,10 +183,7 @@ function Events() {
             <div
               key={event.id}
               className="event-card"
-<<<<<<< HEAD
               onClick={() => navigate(`/events/${event.id}`)}
-=======
->>>>>>> 6ce4b2a (first commit)
               style={{
                 background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
                 borderRadius: '24px',
@@ -327,7 +264,6 @@ function Events() {
               <div style={{
                 width: '100%',
                 height: '220px',
-<<<<<<< HEAD
                 position: 'relative',
                 overflow: 'hidden'
               }}>
@@ -338,14 +274,6 @@ function Events() {
                   background: `linear-gradient(45deg, rgba(0, 229, 255, 0.15) 0%, rgba(155, 89, 182, 0.15) 100%), url(${event.image})`,
                   backgroundSize: 'cover', backgroundPosition: 'center'
                 }} />
-=======
-                background: `linear-gradient(45deg, rgba(0, 229, 255, 0.15) 0%, rgba(155, 89, 182, 0.15) 100%), url(${event.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                position: 'relative',
-                overflow: 'hidden'
-              }}>
->>>>>>> 6ce4b2a (first commit)
                 {/* Image Overlay Animation */}
                 <div style={{
                   position: 'absolute',
@@ -392,11 +320,7 @@ function Events() {
                 zIndex: 2
               }}>
                 <h3 style={{
-<<<<<<< HEAD
                   fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
-=======
-                  fontSize: '1.5rem',
->>>>>>> 6ce4b2a (first commit)
                   fontWeight: 'bold',
                   color: '#ffffff',
                   margin: '0 0 18px 0',
@@ -478,11 +402,7 @@ function Events() {
                 </div>
 
                 <p style={{
-<<<<<<< HEAD
                   fontSize: 'clamp(0.9rem, 2.2vw, 0.95rem)',
-=======
-                  fontSize: '0.95rem',
->>>>>>> 6ce4b2a (first commit)
                   color: 'rgba(255, 255, 255, 0.75)',
                   lineHeight: '1.6',
                   margin: '0 0 25px 0',
@@ -491,7 +411,6 @@ function Events() {
                   {event.description}
                 </p>
 
-<<<<<<< HEAD
                 <button 
                   onClick={(e) => {
                     e.stopPropagation()
@@ -514,25 +433,6 @@ function Events() {
                     overflow: 'hidden',
                     boxShadow: '0 4px 15px rgba(0, 229, 255, 0.2)'
                   }}
-=======
-                <button style={{
-                  width: '100%',
-                  padding: '14px 20px',
-                  borderRadius: '12px',
-                  border: '2px solid #00E5FF',
-                  background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)',
-                  color: '#00E5FF',
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 15px rgba(0, 229, 255, 0.2)'
-                }}
->>>>>>> 6ce4b2a (first commit)
                   onMouseEnter={(e) => {
                     e.target.style.background = 'linear-gradient(135deg, #00E5FF 0%, #0099CC 100%)'
                     e.target.style.color = '#0f101d'
@@ -569,7 +469,6 @@ function Events() {
 }
 
 <style>{`
-<<<<<<< HEAD
   /* Responsive container padding */
   .events-section {
     padding: 64px 0;
@@ -598,8 +497,6 @@ function Events() {
     }
   }
 
-=======
->>>>>>> 6ce4b2a (first commit)
   @keyframes creativePopIn {
     0% {
       opacity: 0;

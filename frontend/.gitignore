@@ -7,13 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-<<<<<<< HEAD
 node_modules/
 ../backend/node_modules/
 ../node_modules/
-=======
-node_modules
->>>>>>> 6ce4b2a (first commit)
 dist
 dist-ssr
 *.local
@@ -28,12 +24,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-<<<<<<< HEAD
 
 # Env files
 .env
 ../.env
 ../**/.env
 !.env.example
-=======
->>>>>>> 6ce4b2a (first commit)

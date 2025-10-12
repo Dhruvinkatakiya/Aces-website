@@ -28,15 +28,9 @@ function Footer() {
           <div>
             <h4 className="text-white font-semibold">Explore</h4>
             <ul className="mt-3 space-y-2 text-sm">
-<<<<<<< HEAD
               <li><a href="events" className="hover:text-[var(--color-cyan)] transition-colors">Events</a></li>
               <li><a href="team" className="hover:text-[var(--color-cyan)] transition-colors">Team</a></li>
               <li><a href="gallery" className="hover:text-[var(--color-cyan)] transition-colors">Gallery</a></li>
-=======
-              <li><a href="#events" className="hover:text-[var(--color-cyan)] transition-colors">Events</a></li>
-              <li><a href="#team" className="hover:text-[var(--color-cyan)] transition-colors">Team</a></li>
-              <li><a href="#gallery" className="hover:text-[var(--color-cyan)] transition-colors">Gallery</a></li>
->>>>>>> 6ce4b2a (first commit)
               <li><a href="#blog" className="hover:text-[var(--color-cyan)] transition-colors">Blog/News</a></li>
             </ul>
           </div>

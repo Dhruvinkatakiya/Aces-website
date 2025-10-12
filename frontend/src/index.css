@@ -22,14 +22,10 @@ body {
 html,
 body,
 #root {
-<<<<<<< HEAD
   /* Unified deep blue background to match hero/video */
   background: radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.06) 0%, rgba(0, 229, 255, 0) 45%),
               radial-gradient(circle at 80% 20%, rgba(155, 89, 182, 0.05) 0%, rgba(155, 89, 182, 0) 40%),
               linear-gradient(180deg, #0f101d 0%, #1a1b2e 55%, #16213e 100%);
-=======
-  background: linear-gradient(180deg, #0a1528 0%, #0e1f33 60%, #0d1c2d 100%);
->>>>>>> 6ce4b2a (first commit)
   color: var(--color-white);
   min-height: 100%;
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;

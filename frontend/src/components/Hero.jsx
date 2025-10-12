@@ -8,10 +8,7 @@ const Hero = () => {
 
   return (
     <div
-<<<<<<< HEAD
       className="hero-container"
-=======
->>>>>>> 6ce4b2a (first commit)
       style={{
         width: '100%',
         minHeight: '100vh',
@@ -30,13 +27,8 @@ const Hero = () => {
       </div>*/}
 
       {/* Foreground section: logo left, code card right */}
-<<<<<<< HEAD
       <div className="hero-inner" style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '32px', padding: '0px 0px', width: 'min(1100px, 94vw)', flexWrap: 'wrap' }}>
         <div className="hero-logo-wrap" style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto', marginRight: '8px' }}>
-=======
-      <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '32px', padding: '0px 0px', width: 'min(1100px, 94vw)', flexWrap: 'wrap' }}>
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto', marginRight: '8px' }}>
->>>>>>> 6ce4b2a (first commit)
           {/* Left blur */}
           <div
             aria-hidden="true"
@@ -93,7 +85,6 @@ const Hero = () => {
             <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#ffbd2e', display: 'inline-block' }} />
             <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#27c93f', display: 'inline-block' }} />
           </div>
-<<<<<<< HEAD
           <pre style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: 1.8, fontSize: 'clamp(13px, 2.8vw, 16px)' }}>
             {`Since its inception, the ACES club has been a vibrant hub for students passionate about computer science and engineering. The club actively organizes a variety of technical, competitive, and collaborative events.nologies, guest lectures, and collaborative projects.
 
@@ -117,18 +108,6 @@ Faculty Advisor: `}
           .hero-container { padding: 88px 12px 32px; }
         }
       `}</style>
-=======
-          <pre style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: 1.8, fontSize: 'clamp(13px, 2.5vw, 15px)' }}>
-            {`Since its inception, the ACES club has been a vibrant hub for students passionate about computer science and engineering. The club actively organizes a variety of technical, competitive, and collaborative events.nologies, guest lectures, and collaborative projects.
-
-Faculty Advisor: `}
-            <span style={{color:'var(--color-cyan)'}}>[Faculty Advisor's Name]</span>
-            {`\nStudent Coordinator: `}
-            <span style={{color:'var(--color-cyan)'}}>[Student Coordinator's Name]</span>
-          </pre>
-        </div>
-      </div>
->>>>>>> 6ce4b2a (first commit)
     </div>
   );
 };

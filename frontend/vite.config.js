@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-<<<<<<< HEAD
   plugins: [
     react({
       // Enable React optimizations
@@ -103,9 +102,4 @@ export default defineConfig({
   css: {
     devSourcemap: false,
   },
-=======
-  plugins: [react(),
-    tailwindcss()
-  ],
->>>>>>> 6ce4b2a (first commit)
 })
