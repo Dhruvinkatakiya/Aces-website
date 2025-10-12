@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { post } from '../utils/api';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -23,19 +24,9 @@ function Contact() {
     setIsSubmitting(true);
     setError(null);
     try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(data.message || 'Something went wrong.');
-        }
+        // Use the post function from our API utility
+        const data = await post('api/contact', formData);
+        
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 5000); // Hide message after 5s
         setFormData({ name: '', email: '', message: '' });
@@ -53,11 +44,7 @@ function Contact() {
         width: '100%',
         minHeight: '100vh',
         backgroundColor: '#0f101d',
-<<<<<<< HEAD
         padding: '64px 0',
-=======
-        padding: '80px 0',
->>>>>>> 6ce4b2a (first commit)
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -69,11 +56,7 @@ function Contact() {
       {/* Header Section */}
       <div style={{ textAlign: 'center', marginBottom: '60px', position: 'relative', zIndex: 10 }}>
         <h2 style={{
-<<<<<<< HEAD
           fontSize: 'clamp(2rem, 4vw, 3rem)',
-=======
-          fontSize: '3rem',
->>>>>>> 6ce4b2a (first commit)
           fontWeight: 'bold',
           color: '#ffffff',
           margin: '0 0 20px 0',
@@ -92,11 +75,7 @@ function Contact() {
         }} />
         
         <p style={{
-<<<<<<< HEAD
           fontSize: 'clamp(1rem, 2.8vw, 1.1rem)',
-=======
-          fontSize: '1.1rem',
->>>>>>> 6ce4b2a (first commit)
           color: 'rgba(255, 255, 255, 0.8)',
           margin: '0',
           maxWidth: '600px',
@@ -108,24 +87,15 @@ function Contact() {
 
       {/* Contact Form */}
       <div style={{
-<<<<<<< HEAD
         width: '92%',
         maxWidth: '620px',
-=======
-        width: '90%',
-        maxWidth: '600px',
->>>>>>> 6ce4b2a (first commit)
         position: 'relative',
         zIndex: 10
       }}>
         <div style={{
           background: 'linear-gradient(135deg, rgba(155, 89, 182, 0.15) 0%, rgba(0, 229, 255, 0.15) 100%)',
           borderRadius: '20px',
-<<<<<<< HEAD
           padding: '24px',
-=======
-          padding: '40px',
->>>>>>> 6ce4b2a (first commit)
           border: '1px solid rgba(0, 229, 255, 0.3)',
           boxShadow: '0 8px 32px rgba(0, 229, 255, 0.1)',
           backdropFilter: 'blur(10px)',
@@ -144,11 +114,7 @@ function Contact() {
           }} />
           
           <h3 style={{
-<<<<<<< HEAD
             fontSize: 'clamp(1.2rem, 3.2vw, 1.5rem)',
-=======
-            fontSize: '1.5rem',
->>>>>>> 6ce4b2a (first commit)
             fontWeight: 'bold',
             color: '#ffffff',
             margin: '0 0 30px 0',
@@ -204,11 +170,7 @@ function Contact() {
             </div>
 
             {/* Message Field */}
-<<<<<<< HEAD
             <div style={{ marginBottom: '24px' }}>
-=======
-            <div style={{ marginBottom: '30px' }}>
->>>>>>> 6ce4b2a (first commit)
               <textarea
                 name="message"
                 placeholder="Your message"
@@ -219,11 +181,7 @@ function Contact() {
                 style={{
                   ...inputStyle,
                   resize: 'vertical',
-<<<<<<< HEAD
                   minHeight: '108px',
-=======
-                  minHeight: '120px',
->>>>>>> 6ce4b2a (first commit)
                   fontFamily: 'inherit'
                 }}
                 onFocus={(e) => {
@@ -276,11 +234,7 @@ function Contact() {
       <div
         style={{
           textAlign: 'center',
-<<<<<<< HEAD
           marginTop: '28px',
-=======
-          marginTop: '30px',    // reduced top margin
->>>>>>> 6ce4b2a (first commit)
           position: 'relative',
           zIndex: 10
         }}
@@ -298,11 +252,7 @@ function Contact() {
 
         <p
           style={{
-<<<<<<< HEAD
             fontSize: 'clamp(0.95rem, 2.6vw, 1rem)',
-=======
-            fontSize: '1rem',
->>>>>>> 6ce4b2a (first commit)
             color: 'rgba(255, 255, 255, 0.8)',
             margin: '10px'
           }}
