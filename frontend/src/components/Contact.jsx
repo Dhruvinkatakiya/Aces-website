@@ -24,8 +24,8 @@ function Contact() {
     setIsSubmitting(true);
     setError(null);
     try {
-        // Use the post function from our API utility
-        const data = await post('api/contact', formData);
+        // Use the post function from our API utility with correct path
+        const data = await post('/api/contact', formData);
         
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 5000); // Hide message after 5s

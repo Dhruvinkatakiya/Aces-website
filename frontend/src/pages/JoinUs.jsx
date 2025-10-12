@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FloatingCode from '../components/FloatingCode';
+import { post } from '../utils/api';
 
 const JoinUs = () => {
     const [form, setForm] = useState({
@@ -23,20 +24,9 @@ const JoinUs = () => {
         setError(null);
 
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/join`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(form),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.message || 'Something went wrong.');
-            }
-
+            // Use the post function from our API utility with correct path
+            const data = await post('/api/join', form);
+            
             setSubmitted(true);
             setTimeout(() => setSubmitted(false), 5000); // Hide message after 5s
             setForm({ name: '', email: '', branch: '', year: '', why: '' });
