@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "aces-backend",
   "version": "1.0.0",
   "description": "ACES Website Backend - Serverless Functions",
@@ -13,24 +12,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "build": "echo 'No build step required for serverless functions'"
-=======
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> 6ce4b2a (first commit)
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
-<<<<<<< HEAD
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.2"
   },
   "devDependencies": {
@@ -39,9 +27,5 @@
   },
   "engines": {
     "node": ">=18.0.0"
-=======
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.18.2"
->>>>>>> 6ce4b2a (first commit)
   }
 }
