@@ -2,8 +2,8 @@
  * API utility file for managing API URLs and common fetch operations
  */
 
-// API URL configuration - uses environment variable or fallback to localhost
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// API URL configuration - uses environment variable or fallback to Vercel deployment
+export const API_URL = import.meta.env.VITE_API_URL || 'https://aces-website-one.vercel.app/api';
 
 /**
  * Helper function for making API requests
