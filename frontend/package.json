@@ -30,10 +30,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
-<<<<<<< HEAD
     "terser": "^5.44.0",
-=======
->>>>>>> 6ce4b2a (first commit)
     "vite": "^7.1.2"
   }
 }
