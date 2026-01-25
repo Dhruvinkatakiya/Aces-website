@@ -57,3 +57,10 @@ dist/
 .netlify
 coverage/
 
+
+
+*.mov
+*.MOV
+\
+
+
