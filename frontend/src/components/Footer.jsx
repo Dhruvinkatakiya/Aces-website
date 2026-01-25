@@ -115,7 +115,7 @@ function Footer() {
                   <h4 className="text-[var(--color-cyan)] font-medium mb-3 text-xs uppercase tracking-[0.2em] opacity-80 group-hover:opacity-100 transition-opacity">Developer Team</h4>
                   <ul className="space-y-2 text-white/90">
                     <li className="font-medium text-lg hover:text-[var(--color-cyan)] transition-colors">Tanvi Madani</li>
-                    <li className="font-medium text-lg hover:text-[var(--color-cyan)] transition-colors">Bhavya Shah</li>
+                    <li className="font-medium text-lg hover:text-[var(--color-cyan)] transition-colors">Dhruvin Katakiya</li>
                   </ul>
                 </div>
                 
@@ -123,6 +123,9 @@ function Footer() {
                   <h4 className="text-[var(--color-cyan)] font-medium mb-3 text-xs uppercase tracking-[0.2em] opacity-80 group-hover:opacity-100 transition-opacity">UI/UX Team</h4>
                   <ul className="space-y-2 text-white/90">
                     <li className="font-medium text-lg hover:text-[var(--color-cyan)] transition-colors">Jinesh Dugar</li>
+                    <li className="font-medium text-lg hover:text-[var(--color-cyan)] transition-colors">Manan Suri</li>
+                    <li className="font-medium text-lg hover:text-[var(--color-cyan)] transition-colors">Tanisha Desai</li>
+                    <li className="font-medium text-lg hover:text-[var(--color-cyan)] transition-colors">Priyanshi Jhala</li>
                   </ul>
                 </div>
               </div>
