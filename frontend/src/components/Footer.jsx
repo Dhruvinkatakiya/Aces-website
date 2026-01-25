@@ -34,7 +34,6 @@ function Footer() {
               <li><a href="#events" className="hover:text-[var(--color-cyan)] transition-colors">Events</a></li>
               <li><a href="#team" className="hover:text-[var(--color-cyan)] transition-colors">Team</a></li>
               <li><a href="#gallery" className="hover:text-[var(--color-cyan)] transition-colors">Gallery</a></li>
-              <li><a href="#blog" className="hover:text-[var(--color-cyan)] transition-colors">Blog/News</a></li>
             </ul>
           </div>
 
