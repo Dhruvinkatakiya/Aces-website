@@ -6,7 +6,7 @@ const teamMembers = [
   {
     name: 'Devam Patel',
     role: 'President',
-    avatar: 'https://i.postimg.cc/wBD3dRds/Jay-Patel.png',
+    avatar: 'https://i.postimg.cc/Z5c4RCcG/President_Devam_Patel.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/devam-patel-5aa2582b1/'
     },
@@ -14,7 +14,7 @@ const teamMembers = [
   {
     name: 'Manan Suri',
     role: 'Vice President',
-    avatar: 'https://i.postimg.cc/rpb6gQHZ/Kathan-Panchal.png',
+    avatar: 'https://i.postimg.cc/Hk2dxVzT/Vice_President_Manan_Suri.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/manan-suri-622657284/',
     },
@@ -30,7 +30,7 @@ const teamMembers = [
   {
     name: 'Tanisha Desai',
     role: 'Joint Secretary',
-    avatar: 'https://i.postimg.cc/sxmwH2Xg/Sarah-Saiyed.png',
+    avatar: 'https://i.postimg.cc/523b063w/Joint_Secretary_Tanisha_Desai.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tanisha-desai-a39657284/',
     },
@@ -38,7 +38,7 @@ const teamMembers = [
   {
     name: 'Sanchita Pathak',
     role: 'Joint Secretary',
-    avatar: 'https://i.postimg.cc/sxmwH2Xg/Sarah-Saiyed.png',
+    avatar: 'https://i.postimg.cc/P5hdTmm3/Joint_Secretary_Sanchita_Pathak.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/sanchita-pathak-752a86288/',
     },
@@ -46,7 +46,7 @@ const teamMembers = [
   {
     name: 'Tapan Mehta',
     role: 'Organizing Secretary',
-    avatar: 'https://i.postimg.cc/FHmRHPF4/Sahil-Bokhani.png',
+    avatar: 'https://i.postimg.cc/VkRm6dRh/Organizing_Secretary_Tapan_Mehta.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tapan-mehta-5050a2284/',
     },
@@ -54,7 +54,7 @@ const teamMembers = [
   {
     name: 'Bhavya Vasavada',
     role: 'Managing Director',
-    avatar: 'https://i.postimg.cc/YCqJH5Kf/Mahek-Mehta.png',
+    avatar: 'https://i.postimg.cc/nhkpzCkP/Managing_Director_Bhavya_Vasavada.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/bhavya-vasavada-85ab49323/',
     },
@@ -62,7 +62,7 @@ const teamMembers = [
   {
     name: 'Priyanshi Jhala',
     role: 'Head of Executives',
-    avatar: 'https://i.postimg.cc/YCqJH5Kf/Mahek-Mehta.png',
+    avatar: 'https://i.postimg.cc/NjYQB11N/Head_of_Executives_Priyanshi_Zhala.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/priyanshi-jhala/',
     },
@@ -70,7 +70,7 @@ const teamMembers = [
   {
     name: 'Saanvi Ganna',
     role: 'Director General',
-    avatar: 'https://i.postimg.cc/x1JctFxG/Chinmay-Kela.png',
+    avatar: 'https://i.postimg.cc/0yx9Ppp6/Director_General_Saanvi_Ganna.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/saanvi-ganna-93a659328/',
     },
@@ -78,7 +78,7 @@ const teamMembers = [
   {
     name: 'Tanvi Madani',
     role: 'Technical Director',
-    avatar: 'https://i.postimg.cc/d3rsqCzN/Dhruvin-Katakiya.png',
+    avatar: 'https://i.postimg.cc/YCfqWXpG/Technical-Director-Tanvi-Madani.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tanvi-madani',
     },
@@ -103,7 +103,7 @@ const teamMembers = [
   {
     name: 'Shyam Ranipa',
     role: 'Treasurer',
-    avatar: 'https://i.postimg.cc/90bJgfMw/Sneh-Patel.png',
+    avatar: 'https://i.postimg.cc/k4wTRPZ5/Treasurer-Shyam-Ranipa.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/shyamranipa/',
     },
@@ -111,7 +111,7 @@ const teamMembers = [
   {
     name: 'Tirth Shah',
     role: 'Social Marketing Head',
-    avatar: 'https://i.postimg.cc/G3v0JPxf/Keshini-Trivedi.png',
+    avatar: 'https://i.postimg.cc/JzqMnGqd/Marketing_Head_Tirth_Shah.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tirth-shah-36b689337/',
     },
@@ -119,7 +119,7 @@ const teamMembers = [
   {
     name: 'Ayush Bhatnagar',
     role: 'Editor Head',
-    avatar: 'https://i.postimg.cc/GtKqgpp5/Nikhil-Raval.png',
+    avatar: 'https://i.postimg.cc/dVvJw886/Editor_in_Chief_Ayush_Bhatnagar.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/ayushbhatnagar2004/',
     },
