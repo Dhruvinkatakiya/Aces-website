@@ -38,16 +38,15 @@ function Footer() {
           <div>
             <h4 className="text-white font-semibold">Connect</h4>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><a href="#join" className="hover:text-[var(--color-cyan)] transition-colors">Join Us</a></li>
               <li><a href="mailto:contact@aces.org" className="hover:text-[var(--color-cyan)] transition-colors">Email</a></li>
-              <li><a href="#" className="hover:text-[var(--color-cyan)] transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-[var(--color-cyan)] transition-colors">Instagram</a></li>
+              <li><a href="https://www.linkedin.com/company/association-of-computer-engineering-students/" className="hover:text-[var(--color-cyan)] transition-colors">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/aces_itnu?igsh=NjJudnE5bmo1YWVr" className="hover:text-[var(--color-cyan)] transition-colors">Instagram</a></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col md:flex-row items-center justify-between text-xs text-white/50">
-          <p>© {new Date().getFullYear()} ACES. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} • ACES</p>
           <div className="mt-4 md:mt-0 flex items-center gap-4">
             <a href="#" className="hover:text-[var(--color-cyan)] transition-colors">Privacy</a>
             <span className="opacity-30">•</span>

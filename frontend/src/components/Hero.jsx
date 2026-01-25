@@ -89,10 +89,8 @@ const Hero = () => {
             {`Since its inception, the ACES club has been a vibrant hub for students passionate about computer science and engineering. The club actively organizes a variety of technical, competitive, and collaborative events.nologies, guest lectures, and collaborative projects.
 
 Faculty Advisor: `}
-            <span style={{color:'var(--color-cyan)'}}>[Faculty Advisor's Name]</span>
-            {`\nStudent Coordinator: `}
-            <span style={{color:'var(--color-cyan)'}}>[Student Coordinator's Name]</span>
-          </pre>
+            <span style={{color:'var(--color-cyan)'}}>Dr. Vipul Chudasama</span>
+            </pre>
         </div>
       </div>
       <style>{`

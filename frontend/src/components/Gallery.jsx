@@ -66,7 +66,6 @@ function Gallery() {
       style={{
         width: '100%',
         minHeight: '100vh',
-        backgroundColor: '#0f101d',
         padding: '80px 0 40px',
         position: 'relative',
         overflow: 'hidden'

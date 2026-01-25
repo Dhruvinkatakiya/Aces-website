@@ -20,7 +20,6 @@ const EventsPage = lazy(() => import('./pages/EventsPage'))
 const TeamPage = lazy(() => import('./pages/TeamPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const GalleryEventPage = lazy(() => import('./pages/GalleryEventPage'))
-const JoinUs = lazy(() => import('./pages/JoinUs'))
 const EventDetails = lazy(() => import('./components/EventDetails'))
 
 function App() {
@@ -94,13 +93,12 @@ function App() {
               <Route 
                 path="/gallery" 
                 element={
-                  <div onMouseEnter={() => handleRouteHover('/join-us', () => import('./pages/JoinUs'))}>
+                  <div>
                     <GalleryPage />
                   </div>
                 } 
               />
               <Route path="/gallery/:slug" element={<GalleryEventPage />} />
-              <Route path="/join-us" element={<JoinUs />} />
               <Route path="/events/:id" element={<EventDetails />} />
             </Routes>
           </Suspense>

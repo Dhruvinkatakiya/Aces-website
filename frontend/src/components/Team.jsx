@@ -4,115 +4,132 @@ import useCachedImage from '../hooks/useCachedImage'
 
 const teamMembers = [
   {
-    name: 'Jay Patel',
+    name: 'Devam Patel',
     role: 'President',
     avatar: 'https://i.postimg.cc/wBD3dRds/Jay-Patel.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/jayypatel18/'
+      linkedin: 'https://www.linkedin.com/in/devam-patel-5aa2582b1/'
     },
   },
   {
-    name: 'Kathan Panchal',
+    name: 'Manan Suri',
     role: 'Vice President',
     avatar: 'https://i.postimg.cc/rpb6gQHZ/Kathan-Panchal.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/kathan-panchal-2894a924a/',
+      linkedin: 'https://www.linkedin.com/in/manan-suri-622657284/',
     },
   },
   {
-    name: 'Twisha Patel',
+    name: 'Smit Shah',
     role: 'General Secretary',
     avatar: 'https://i.postimg.cc/fbqT5Dc8/Tvisha-Patel.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/tvisha-patel-028816258/',
+      linkedin: 'https://www.linkedin.com/in/smit-shah-51a9b8284/',
     },
   },
   {
-    name: 'Sarah Saiyed',
+    name: 'Tanisha Desai',
     role: 'Joint Secretary',
     avatar: 'https://i.postimg.cc/sxmwH2Xg/Sarah-Saiyed.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/sarah-saiyed0/',
+      linkedin: 'https://www.linkedin.com/in/tanisha-desai-a39657284/',
     },
   },
   {
-    name: 'Sahil Bokhani',
+    name: 'Sanchita Pathak',
+    role: 'Joint Secretary',
+    avatar: 'https://i.postimg.cc/sxmwH2Xg/Sarah-Saiyed.png',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/sanchita-pathak-752a86288/',
+    },
+  },
+  {
+    name: 'Tapan Mehta',
     role: 'Organizing Secretary',
     avatar: 'https://i.postimg.cc/FHmRHPF4/Sahil-Bokhani.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/sahil-bokhani-196006251/',
+      linkedin: 'https://www.linkedin.com/in/tapan-mehta-5050a2284/',
     },
   },
   {
-    name: 'Mahek Mehta',
+    name: 'Bhavya Vasavada',
     role: 'Managing Director',
     avatar: 'https://i.postimg.cc/YCqJH5Kf/Mahek-Mehta.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/mahek-mehta-b11735231/',
+      linkedin: 'https://www.linkedin.com/in/bhavya-vasavada-85ab49323/',
     },
   },
   {
-    name: 'Chinmay Kela',
+    name: 'Priyanshi Jhala',
+    role: 'Head of Executives',
+    avatar: 'https://i.postimg.cc/YCqJH5Kf/Mahek-Mehta.png',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/priyanshi-jhala/',
+    },
+  },
+  {
+    name: 'Saanvi Ganna',
     role: 'Director General',
     avatar: 'https://i.postimg.cc/x1JctFxG/Chinmay-Kela.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/chinmay-kela-3651ba272/',
+      linkedin: 'https://www.linkedin.com/in/saanvi-ganna-93a659328/',
     },
   },
   {
-    name: 'Sneh Patel',
-    role: 'Treasurer',
-    avatar: 'https://i.postimg.cc/90bJgfMw/Sneh-Patel.png',
+    name: 'Tanvi Madani',
+    role: 'Technical Director',
+    avatar: 'https://i.postimg.cc/d3rsqCzN/Dhruvin-Katakiya.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/snehpatel2510/',
+      linkedin: 'https://www.linkedin.com/in/tanvi-madani',
     },
   },
   {
-    name: 'Rudra Naik',
+    name: 'Bhavya Shah',
+    role: 'Technical Director',
+    avatar: 'https://i.postimg.cc/d3rsqCzN/Dhruvin-Katakiya.png',
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/bhavyamshah/',
+    },
+  },
+  
+  {
+    name: 'Yug Dave',
     role: 'Logistic Head',
     avatar: 'https://i.postimg.cc/qv5ZdgGR/Rudra-Naik.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/rudy7404/',
+      linkedin: 'https://www.linkedin.com/in/yug-dave-268a60286/',
     },
   },
   {
-    name: 'Dhruvin Katakiya',
-    role: 'Technical Head',
-    avatar: 'https://i.postimg.cc/d3rsqCzN/Dhruvin-Katakiya.png',
+    name: 'Shyam Ranipa',
+    role: 'Treasurer',
+    avatar: 'https://i.postimg.cc/90bJgfMw/Sneh-Patel.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/dhruvin-katakiya/',
+      linkedin: 'https://www.linkedin.com/in/shyamranipa/',
     },
   },
   {
-    name: 'Keishini Trivedi',
-    role: 'Social Media Head',
+    name: 'Tirth Shah',
+    role: 'Social Marketing Head',
     avatar: 'https://i.postimg.cc/G3v0JPxf/Keshini-Trivedi.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/keshini-trivedi/',
+      linkedin: 'https://www.linkedin.com/in/tirth-shah-36b689337/',
     },
   },
   {
-    name: 'Nikhil Raval',
+    name: 'Ayush Bhatnagar',
     role: 'Editor Head',
     avatar: 'https://i.postimg.cc/GtKqgpp5/Nikhil-Raval.png',
     socials: {
-      linkedin: 'https://www.linkedin.com/in/nikhil-raval-2a89ab293/',
+      linkedin: 'https://www.linkedin.com/in/ayushbhatnagar2004/',
     },
   },
   {
-    name: 'Aakanksha Rajpal',
-    role: 'Creative Head',
-    avatar: 'https://i.postimg.cc/2SrCB9pC/Aakansha-Rajpal.png',
-    socials: {
-      linkedin: '#',
-    },
-  },
-  {
-    name: 'Aayush Patel',
+    name: 'Jinesh Dugar',
     role: 'Graphic Head',
     avatar: 'https://i.postimg.cc/vZsZtHnc/Aayush-Patel.png',
     socials: {
-      linkedin: '#',
+      linkedin: 'https://www.linkedin.com/in/jinesh-dugar-/',
     },
   },
 ]

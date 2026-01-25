@@ -1,58 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError(null);
-    try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(data.message || 'Something went wrong.');
-        }
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 5000); // Hide message after 5s
-        setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
-        setError(err.message);
-    } finally {
-        setIsSubmitting(false);
-    }
-  }
-
   return (
     <section 
       id="contact" 
       style={{
         width: '100%',
         minHeight: '100vh',
-        backgroundColor: '#0f101d',
         padding: '64px 0',
         display: 'flex',
         flexDirection: 'column',
@@ -94,227 +48,250 @@ function Contact() {
         </p>
       </div>
 
-      {/* Contact Form */}
+      {/* Contact Info Cards */}
       <div style={{
         width: '92%',
-        maxWidth: '620px',
+        maxWidth: '1200px',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        gap: '30px',
         position: 'relative',
         zIndex: 10
       }}>
+        {/* Email Card */}
         <div style={{
-          background: 'linear-gradient(135deg, rgba(155, 89, 182, 0.15) 0%, rgba(0, 229, 255, 0.15) 100%)',
+          background: 'linear-gradient(135deg, rgba(155, 89, 182, 0.1) 0%, rgba(0, 229, 255, 0.1) 100%)',
           borderRadius: '20px',
-          padding: '24px',
-          border: '1px solid rgba(0, 229, 255, 0.3)',
+          padding: '40px 30px',
+          border: '1px solid rgba(0, 229, 255, 0.2)',
           boxShadow: '0 8px 32px rgba(0, 229, 255, 0.1)',
           backdropFilter: 'blur(10px)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          {/* Form glow effect */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '2px',
-            background: 'linear-gradient(90deg, var(--color-cyan) 0%, #0A1537 100%)',
-            opacity: 0.8
-          }} />
-          
-          <h3 style={{
-            fontSize: 'clamp(1.2rem, 3.2vw, 1.5rem)',
-            fontWeight: 'bold',
-            color: '#ffffff',
-            margin: '0 0 30px 0',
-            textAlign: 'left'
-          }}>
-            Enter your details
-          </h3>
-
-          {submitted && <div style={{ color: '#4CAF50', textAlign: 'center', paddingBottom: '10px', fontWeight: 'bold' }}>Message sent successfully!</div>}
-          {error && <div style={{ color: '#F44336', textAlign: 'center', paddingBottom: '10px', fontWeight: 'bold' }}>{error}</div>}
-
-          <form onSubmit={handleSubmit}>
-            {/* Name Field */}
-            <div style={{ marginBottom: '20px' }}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-                style={inputStyle}
-                onFocus={(e) => {
-                  e.target.style.borderColor = '#00E5FF'
-                  e.target.style.boxShadow = '0 0 10px rgba(0, 229, 255, 0.3)'
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = 'rgba(0, 229, 255, 0.2)'
-                  e.target.style.boxShadow = 'none'
-                }}
-              />
-            </div>
-
-            {/* Email Field */}
-            <div style={{ marginBottom: '20px' }}>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-                style={inputStyle}
-                onFocus={(e) => {
-                  e.target.style.borderColor = '#00E5FF'
-                  e.target.style.boxShadow = '0 0 10px rgba(0, 229, 255, 0.3)'
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = 'rgba(0, 229, 255, 0.2)'
-                  e.target.style.boxShadow = 'none'
-                }}
-              />
-            </div>
-
-            {/* Message Field */}
-            <div style={{ marginBottom: '24px' }}>
-              <textarea
-                name="message"
-                placeholder="Your message"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-                rows={6}
-                style={{
-                  ...inputStyle,
-                  resize: 'vertical',
-                  minHeight: '108px',
-                  fontFamily: 'inherit'
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = '#00E5FF'
-                  e.target.style.boxShadow = '0 0 10px rgba(0, 229, 255, 0.3)'
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = 'rgba(0, 229, 255, 0.2)'
-                  e.target.style.boxShadow = 'none'
-                }}
-              />
-            </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              style={{
-                width: '100%',
-                padding: '15px 30px',
-                borderRadius: '12px',
-                border: 'none',
-                background: 'linear-gradient(135deg, var(--color-cyan) 0%, #0A1537 100%)',
-                color: '#ffffff',
-                fontSize: '16px',
-                fontWeight: 'bold',
-                cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                transition: 'all 0.3s ease',
-                textTransform: 'uppercase',
-                letterSpacing: '1px',
-                opacity: isSubmitting ? 0.7 : 1
-              }}
-              disabled={isSubmitting}
-              onMouseOver={(e) => {
-                e.target.style.transform = 'translateY(-2px)'
-                e.target.style.boxShadow = '0 8px 25px rgba(0, 229, 255, 0.4)'
-              }}
-              onMouseOut={(e) => {
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = 'none'
-              }}
-            >
-              {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
-        </div>
-      </div>
-
-
-      {/* Email Contact Section With Tight Spacing */}
-      <div
-        style={{
+          flex: '1 1 300px',
+          maxWidth: '350px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           textAlign: 'center',
-          marginTop: '28px',
-          position: 'relative',
-          zIndex: 10
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
         }}
-      >
-        {/* Gradient underline at the top of the section */}
-        <div
-          style={{
-            width: '200px',
-            height: '2px',
-            background: 'linear-gradient(90deg, var(--color-cyan) 0%, #0A1537 100%)',
-            margin: '0 auto 15px auto',   // less spacing
-            borderRadius: '1px'
-          }}
-        />
-
-        <p
-          style={{
-            fontSize: 'clamp(0.95rem, 2.6vw, 1rem)',
-            color: 'rgba(255, 255, 255, 0.8)',
-            margin: '10px'
-          }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-10px)';
+          e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 229, 255, 0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 229, 255, 0.1)';
+        }}
         >
-          You can also E-mail us at{' '}
+          <div style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            background: 'rgba(0, 229, 255, 0.1)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '20px',
+            fontSize: '24px'
+          }}>
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
+              alt="Email" 
+              style={{ width: '35px', height: '35px' }} 
+            />
+          </div>
+          <h3 style={{
+            color: '#ffffff',
+            fontSize: '1.5rem',
+            marginBottom: '15px',
+            fontWeight: 'bold'
+          }}>Email Us</h3>
+          <p style={{
+            color: 'rgba(255, 255, 255, 0.7)',
+            marginBottom: '20px'
+          }}>For any queries or collaborations</p>
           <a
             href="mailto:aces_itnu@nirmauni.ac.in"
             style={{
               color: '#00E5FF',
               textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '500',
               borderBottom: '1px solid transparent',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              transition: 'all 0.3s ease'
+              transition: 'border-color 0.3s ease'
             }}
-            onMouseOver={(e) => {
-              e.target.style.borderBottomColor = '#00E5FF'
-            }}
-            onMouseOut={(e) => {
-              e.target.style.borderBottomColor = 'transparent'
-            }}
+            onMouseEnter={(e) => e.target.style.borderBottomColor = '#00E5FF'}
+            onMouseLeave={(e) => e.target.style.borderBottomColor = 'transparent'}
           >
             aces_itnu@nirmauni.ac.in
           </a>
-        </p>
+        </div>
 
-        {/* Gradient underline at the top of the section */}
-        <div
-          style={{
-            width: '200px',
-            height: '2px',
-            background: 'linear-gradient(90deg, var(--color-cyan) 0%, #0A1537 100%)',
-            margin: '0 auto 15px auto',   // less spacing
-            borderRadius: '1px'
-          }}
-        />
+        {/* WhatsApp Card */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%)',
+          borderRadius: '20px',
+          padding: '40px 30px',
+          border: '1px solid rgba(37, 211, 102, 0.2)',
+          boxShadow: '0 8px 32px rgba(37, 211, 102, 0.1)',
+          backdropFilter: 'blur(10px)',
+          flex: '1 1 300px',
+          maxWidth: '350px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-10px)';
+          e.currentTarget.style.boxShadow = '0 12px 40px rgba(37, 211, 102, 0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 8px 32px rgba(37, 211, 102, 0.1)';
+        }}
+        >
+          <div style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            background: 'rgba(37, 211, 102, 0.1)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '20px',
+            fontSize: '24px'
+          }}>
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+              alt="WhatsApp" 
+              style={{ width: '35px', height: '35px' }} 
+            />
+          </div>
+          <h3 style={{
+            color: '#ffffff',
+            fontSize: '1.5rem',
+            marginBottom: '15px',
+            fontWeight: 'bold'
+          }}>WhatsApp</h3>
+          <p style={{
+            color: 'rgba(255, 255, 255, 0.7)',
+            marginBottom: '20px'
+          }}>Join our community group</p>
+          <a
+            href="https://chat.whatsapp.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#25D366',
+              textDecoration: 'none',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              borderBottom: '1px solid transparent',
+              transition: 'border-color 0.3s ease'
+            }}
+            onMouseEnter={(e) => e.target.style.borderBottomColor = '#25D366'}
+            onMouseLeave={(e) => e.target.style.borderBottomColor = 'transparent'}
+          >
+            Join Group
+          </a>
+        </div>
+
+        {/* Social Media Card */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(155, 89, 182, 0.1) 0%, rgba(0, 229, 255, 0.1) 100%)',
+          borderRadius: '20px',
+          padding: '40px 30px',
+          border: '1px solid rgba(0, 229, 255, 0.2)',
+          boxShadow: '0 8px 32px rgba(0, 229, 255, 0.1)',
+          backdropFilter: 'blur(10px)',
+          flex: '1 1 300px',
+          maxWidth: '350px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-10px)';
+          e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 229, 255, 0.2)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 229, 255, 0.1)';
+        }}
+        >
+          <div style={{
+            width: '60px',
+            height: '60px',
+            borderRadius: '50%',
+            background: 'rgba(0, 229, 255, 0.1)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '20px',
+            fontSize: '24px'
+          }}>
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
+              alt="Social" 
+              style={{ width: '35px', height: '35px' }} 
+            />
+          </div>
+          <h3 style={{
+            color: '#ffffff',
+            fontSize: '1.5rem',
+            marginBottom: '15px',
+            fontWeight: 'bold'
+          }}>Social Media</h3>
+          <p style={{
+            color: 'rgba(255, 255, 255, 0.7)',
+            marginBottom: '20px'
+          }}>Follow us for updates</p>
+          <div style={{ display: 'flex', gap: '15px' }}>
+            <a
+              href="https://www.instagram.com/aces_itnu"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#00E5FF',
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                fontWeight: '500',
+                transition: 'transform 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              Instagram
+            </a>
+            <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
+            <a
+              href="https://www.linkedin.com/company/association-of-computer-engineering-students"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#00E5FF',
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                fontWeight: '500',
+                transition: 'transform 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
       </div>
+
 
     </section>
   )
 }
-
-const inputStyle = {
-  width: '100%',
-  padding: '15px 20px',
-  borderRadius: '12px',
-  border: '1px solid rgba(0, 229, 255, 0.2)',
-  background: 'rgba(0, 0, 0, 0.3)',
-  color: '#ffffff',
-  fontSize: '16px',
-  outline: 'none',
-  transition: 'all 0.3s ease',
-  backdropFilter: 'blur(5px)'
-};
 
 export default Contact

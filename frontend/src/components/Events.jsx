@@ -464,11 +464,7 @@ function Events() {
           </div>
         )}
       </div>
-    </section>
-  )
-}
-
-<style>{`
+      <style>{`
   /* Responsive container padding */
   .events-section {
     padding: 64px 0;
@@ -492,7 +488,7 @@ function Events() {
   }
   @media (min-width: 1200px) {
     .events-grid { 
-      grid-template-columns: repeat(2, 1fr); /* Keep 2 columns for larger screens */
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for larger screens */
       gap: 40px;
     }
   }
@@ -531,5 +527,8 @@ function Events() {
     filter: drop-shadow(0 0 12px #00e5ff88);
   }
 `}</style>
+    </section>
+  )
+}
 
 export default Events

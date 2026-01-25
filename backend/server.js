@@ -3,18 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const joinRoutes = require('./routes/join');
-const contactRoutes = require('./routes/contact');
-
 let isMongoConnected = false;
 
 function createApp() {
     const app = express();
     app.use(cors());
     app.use(express.json());
-
-    app.use('/api/join', joinRoutes);
-    app.use('/api/contact', contactRoutes);
 
     // Simple healthcheck
     app.get('/health', (req, res) => {

@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import React from 'react'
+
+const { useEffect, useState } = React
 
 const toDataUrl = (blob) =>
   new Promise((resolve, reject) => {

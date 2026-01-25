@@ -83,7 +83,11 @@ function About() {
             background: 'linear-gradient(90deg, var(--color-cyan) 0%, #0A1537 100%)',
             opacity: 0.6
           }} />
-          
+          <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+            <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#ff5f56', display: 'inline-block' }} />
+            <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#ffbd2e', display: 'inline-block' }} />
+            <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#27c93f', display: 'inline-block' }} />
+          </div>
           <h3 style={{
             fontSize: '1.5rem',
             fontWeight: 'bold',
@@ -129,7 +133,11 @@ function About() {
             background: 'linear-gradient(90deg, var(--color-cyan) 0%, #0A1537 100%)',
             opacity: 0.6
           }} />
-          
+          <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+            <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#ff5f56', display: 'inline-block' }} />
+            <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#ffbd2e', display: 'inline-block' }} />
+            <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#27c93f', display: 'inline-block' }} />
+          </div>
           <h3 style={{
             fontSize: '1.5rem',
             fontWeight: 'bold',

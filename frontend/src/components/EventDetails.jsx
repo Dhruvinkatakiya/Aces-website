@@ -7,7 +7,6 @@ function EventDetails() {
   const [event, setEvent] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  // Sample events data (same as in Events.jsx)
   const events = [
     {
       id: 1,
@@ -56,15 +55,15 @@ function EventDetails() {
     },
     {
       id: 3,
-      title: "Insignia 2024",
-      date: "February 15-16, 2024",
+      title: "Insignia 2025",
+      date: "February 15-16, 2025",
       time: "10:00 AM - 5:00 PM",
       location: "ITNU Campus",
-      description: "Intensive coding bootcamp covering web development, data structures, and algorithms.",
+      description: "*decription*",
       image: "",
       status: "completed",
       fullDescription: "A comprehensive 2-day coding bootcamp designed to enhance your programming skills. The event covers modern web development technologies, advanced data structures, and algorithmic problem-solving techniques. Perfect for students looking to improve their coding abilities and prepare for technical interviews.",
-      speakers: ["Prof. Michael Brown", "Dr. Lisa Wang", "Senior Developer Team"],
+      speakers: [""],
       agenda: [
         "Day 1:",
         "10:00 AM - Web Development Fundamentals",
@@ -81,30 +80,8 @@ function EventDetails() {
         "5:00 PM - Certificate Distribution"
       ],
       requirements: ["Laptop with IDE", "Basic Programming Knowledge", "GitHub Account"],
-      contact: "insignia@aces.com"
+      contact: ""
     },
-    {
-      id: 4,
-      title: "ACES Annual Meet",
-      date: "February 15, 2024",
-      time: "6:00 PM - 9:00 PM",
-      location: "Main Hall",
-      description: "Annual gathering of ACES members with networking, food, and celebration of achievements.",
-      image: "",
-      status: "completed",
-      fullDescription: "Join us for our annual celebration where we recognize outstanding achievements, welcome new members, and strengthen our community bonds. This special evening includes award ceremonies, networking opportunities, delicious food, and entertainment. A perfect opportunity to connect with fellow ACES members and celebrate our collective success.",
-      speakers: ["ACES President", "Faculty Advisors", "Guest of Honor"],
-      agenda: [
-        "6:00 PM - Welcome Reception",
-        "6:30 PM - Opening Ceremony",
-        "7:00 PM - Award Presentations",
-        "7:30 PM - Dinner & Networking",
-        "8:30 PM - Entertainment Program",
-        "9:00 PM - Closing Remarks"
-      ],
-      requirements: ["ACES Membership", "Formal Attire"],
-      contact: "annual@aces.com"
-    }
   ]
 
   useEffect(() => {

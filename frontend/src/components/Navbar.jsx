@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
 function Navbar() {
-  const [showQR, setShowQR] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const linksContainerRef = useRef(null)
   const location = useLocation()
@@ -141,35 +140,15 @@ function Navbar() {
                   <Link to="/events" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Events</Link>
                   <Link to="/team" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Team</Link>
                   <Link to="/gallery" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Gallery</Link>
-                  {/*<a href="#blog" data-section="blog" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Blog/News</a>*/}
-                  <Link to="/join-us" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Join Us</Link>
                 </div>
               </div>
             </div>
 
-            {/* Contact Us + QR Button */}
+            {/* Contact Us */}
             <div className="hidden md:flex items-center space-x-3">
               <Link to="/contact" className="relative overflow-hidden text-white font-semibold py-2 px-6 rounded-lg border border-[var(--color-cyan)] shadow-[0_0_28px_0_rgba(0,229,255,0.25)] hover:shadow-[0_0_42px_8px_rgba(0,229,255,0.35)] transition-all duration-300 bg-transparent hover:bg-[rgba(0,229,255,0.12)] anim-glow">
                 Contact Us
               </Link>
-              <button
-                onClick={() => setShowQR(true)}
-                className="flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors focus:outline-none"
-              >
-                <svg
-                  className="h-6 w-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
-                  />
-                </svg>
-              </button>
             </div>
 
             {/* Mobile menu button */}
@@ -215,53 +194,8 @@ function Navbar() {
                 <Link onClick={() => setMobileOpen(false)} to="/team" className="text-white/90 py-2 px-3 rounded hover:bg-white/10">Team</Link>
                 <Link onClick={() => setMobileOpen(false)} to="/gallery" className="text-white/90 py-2 px-3 rounded hover:bg-white/10">Gallery</Link>
                 <Link onClick={() => setMobileOpen(false)} to="/contact" className="text-white/90 py-2 px-3 rounded hover:bg-white/10">Contact</Link>
-                <Link onClick={() => setMobileOpen(false)} to="/join-us" className="text-white/90 py-2 px-3 rounded hover:bg-white/10">Join Us</Link>
               </div>
             </motion.aside>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {showQR && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setShowQR(false)}
-            className="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.5 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.5 }}
-              onClick={e => e.stopPropagation()}
-              className="bg-black/20 backdrop-blur-md rounded-xl p-8 max-w-md w-full text-center border border-white/5 shadow-lg ring-1 ring-white/10"
-            >
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-white w-full text-center">Join Our WhatsApp Group</h3>
-                <button
-                  onClick={() => setShowQR(false)}
-                  className="text-white/70 hover:text-white transition-colors absolute right-8"
-                  aria-label="Close WhatsApp QR Code"
-                >
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              <div className="bg-transparent">
-                <img
-                  src="/whatsapp-qr.png"
-                  alt="WhatsApp QR Code"
-                  className="w-full h-auto"
-                  aria-hidden="true"
-                />
-              </div>
-              <p className="mt-6 text-base text-white/70 text-center">
-                Scan this QR code to join our WhatsApp group
-              </p>
-            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
