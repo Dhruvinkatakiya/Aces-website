@@ -36,16 +36,7 @@ function Contact() {
           margin: '0 auto 30px auto',
           borderRadius: '1px'
         }} />
-        
-        <p style={{
-          fontSize: 'clamp(1rem, 2.8vw, 1.1rem)',
-          color: 'rgba(255, 255, 255, 0.8)',
-          margin: '0',
-          maxWidth: '600px',
-          lineHeight: '1.6'
-        }}>
-          Feel free to drop your suggestions, feedback and queries here.
-        </p>
+        <p className="mt-2 text-white/70">Feel free to drop your suggestions, feedback and queries here</p>
       </div>
 
       {/* Contact Info Cards */}
@@ -128,76 +119,7 @@ function Contact() {
           </a>
         </div>
 
-        {/* WhatsApp Card */}
-        <div style={{
-          background: 'linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%)',
-          borderRadius: '20px',
-          padding: '40px 30px',
-          border: '1px solid rgba(37, 211, 102, 0.2)',
-          boxShadow: '0 8px 32px rgba(37, 211, 102, 0.1)',
-          backdropFilter: 'blur(10px)',
-          flex: '1 1 300px',
-          maxWidth: '350px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          textAlign: 'center',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-10px)';
-          e.currentTarget.style.boxShadow = '0 12px 40px rgba(37, 211, 102, 0.2)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 8px 32px rgba(37, 211, 102, 0.1)';
-        }}
-        >
-          <div style={{
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            background: 'rgba(37, 211, 102, 0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '20px',
-            fontSize: '24px'
-          }}>
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-              alt="WhatsApp" 
-              style={{ width: '35px', height: '35px' }} 
-            />
-          </div>
-          <h3 style={{
-            color: '#ffffff',
-            fontSize: '1.5rem',
-            marginBottom: '15px',
-            fontWeight: 'bold'
-          }}>WhatsApp</h3>
-          <p style={{
-            color: 'rgba(255, 255, 255, 0.7)',
-            marginBottom: '20px'
-          }}>Join our community group</p>
-          <a
-            href="https://chat.whatsapp.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: '#25D366',
-              textDecoration: 'none',
-              fontSize: '1.1rem',
-              fontWeight: '500',
-              borderBottom: '1px solid transparent',
-              transition: 'border-color 0.3s ease'
-            }}
-            onMouseEnter={(e) => e.target.style.borderBottomColor = '#25D366'}
-            onMouseLeave={(e) => e.target.style.borderBottomColor = 'transparent'}
-          >
-            Join Group
-          </a>
-        </div>
+
 
         {/* Social Media Card */}
         <div style={{
@@ -224,23 +146,39 @@ function Contact() {
           e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 229, 255, 0.1)';
         }}
         >
-          <div style={{
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            background: 'rgba(0, 229, 255, 0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '20px',
-            fontSize: '24px'
-          }}>
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
-              alt="Social" 
-              style={{ width: '35px', height: '35px' }} 
-            />
+          <div style={{ display: 'flex', gap: '14px', marginBottom: '20px' }}>
+            <div style={{
+              width: '60px',
+              height: '60px',
+              borderRadius: '50%',
+              background: 'rgba(0, 229, 255, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+                alt="Instagram" 
+                style={{ width: '32px', height: '32px' }} 
+              />
+            </div>
+            <div style={{
+              width: '60px',
+              height: '60px',
+              borderRadius: '50%',
+              background: 'rgba(0, 229, 255, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
+                alt="LinkedIn" 
+                style={{ width: '32px', height: '32px' }} 
+              />
+            </div>
           </div>
+          
           <h3 style={{
             color: '#ffffff',
             fontSize: '1.5rem',
@@ -250,7 +188,7 @@ function Contact() {
           <p style={{
             color: 'rgba(255, 255, 255, 0.7)',
             marginBottom: '20px'
-          }}>Follow us for updates</p>
+          }}>Follow us for updates and contents</p>
           <div style={{ display: 'flex', gap: '15px' }}>
             <a
               href="https://www.instagram.com/aces_itnu"

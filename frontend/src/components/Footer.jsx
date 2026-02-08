@@ -9,9 +9,9 @@ function Footer() {
   return (
     <footer className="border-t border-[rgba(0,229,255,0.15)] bg-[rgba(15,16,29,0.65)]/60 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white/80">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white/80 text-center md:text-left">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center justify-center md:justify-start">
             <div className="relative flex items-center justify-center">
               <div className="w-12 h-12 rounded-full flex items-center justify-center">
                 <img 
@@ -65,11 +65,6 @@ function Footer() {
 
         <div className="mt-6 flex flex-col md:flex-row items-center justify-between text-xs text-white/50">
           <p>© {new Date().getFullYear()} • ACES</p>
-          <div className="mt-4 md:mt-0 flex items-center gap-4">
-            <a href="#" className="hover:text-[var(--color-cyan)] transition-colors">Privacy</a>
-            <span className="opacity-30">•</span>
-            <a href="#" className="hover:text-[var(--color-cyan)] transition-colors">Terms</a>
-          </div>
         </div>
       </div>
 

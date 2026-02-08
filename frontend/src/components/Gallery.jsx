@@ -76,13 +76,14 @@ function Gallery() {
         <h2 className="heading-gradient" style={{
           fontSize: 'clamp(2rem, 4vw, 3rem)',
           fontWeight: 800,
+          color: '#ffffff',
           margin: '0 0 20px 0',
           letterSpacing: '1.5px'
         }}>
           Gallery
         </h2>
         
-        {/* Purple underline */}
+        {/* underline */}
         <div style={{
           width: '200px',
           height: '2px',
@@ -90,6 +91,8 @@ function Gallery() {
           margin: '0 auto 30px auto',
           borderRadius: '1px'
         }} />
+        <p className="mt-2 text-white/70">Highlights from our unforgettable events</p>
+
       </div>
 
       {/* Gallery Content */}

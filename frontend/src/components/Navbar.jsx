@@ -7,6 +7,32 @@ function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const linksContainerRef = useRef(null)
   const location = useLocation()
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const lastScrollY = useRef(0)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    setIsLoggedIn(!!token)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      if (currentScrollY > lastScrollY.current && currentScrollY > 20) {
+        setIsVisible(false)
+      } else {
+        setIsVisible(true)
+      }
+      
+      setIsScrolled(currentScrollY > 20)
+      lastScrollY.current = currentScrollY
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     const container = linksContainerRef.current
@@ -107,7 +133,10 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50" style={{ padding: '20px clamp(10px, 5vw, 40px) 0px clamp(10px, 5vw, 40px)' }}>
+      <nav 
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[rgba(10,11,20,0.95)] shadow-[0_4px_30px_rgba(0,0,0,0.5)] backdrop-blur-md' : 'bg-transparent'} ${isVisible ? 'translate-y-0' : '-translate-y-full'}`} 
+        style={{ padding: isScrolled ? '10px clamp(10px, 5vw, 40px)' : '20px clamp(10px, 5vw, 40px) 0px clamp(10px, 5vw, 40px)' }}
+      >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Subtle blue glow behind navbar */}
           <div className="pointer-events-none absolute inset-0 -z-10">
@@ -140,15 +169,24 @@ function Navbar() {
                   <Link to="/events" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Events</Link>
                   <Link to="/team" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Team</Link>
                   <Link to="/gallery" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Gallery</Link>
+                  <Link to="/contact" className="relative text-[rgba(255,255,255,0.85)] hover:text-white px-3 py-2 text-sm font-medium transition-all duration-300 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:bg-[var(--color-cyan)] after:transition-all after:duration-300 hover:after:w-full">Contact Us</Link>
                 </div>
               </div>
             </div>
 
-            {/* Contact Us */}
+            {/* Auth Buttons */}
             <div className="hidden md:flex items-center space-x-3">
-              <Link to="/contact" className="relative overflow-hidden text-white font-semibold py-2 px-6 rounded-lg border border-[var(--color-cyan)] shadow-[0_0_28px_0_rgba(0,229,255,0.25)] hover:shadow-[0_0_42px_8px_rgba(0,229,255,0.35)] transition-all duration-300 bg-transparent hover:bg-[rgba(0,229,255,0.12)] anim-glow">
-                Contact Us
-              </Link>
+              {isLoggedIn ? (
+                <Link to="/profile" className="text-white hover:text-[var(--color-cyan)] transition-colors p-2" title="Profile">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                  </svg>
+                </Link>
+              ) : (
+                <Link to="/signin" className="relative overflow-hidden text-white font-semibold py-2 px-6 rounded-lg border border-[var(--color-cyan)] shadow-[0_0_28px_0_rgba(0,229,255,0.25)] hover:shadow-[0_0_42px_8px_rgba(0,229,255,0.35)] transition-all duration-300 bg-transparent hover:bg-[rgba(0,229,255,0.12)] anim-glow">
+                  Login
+                </Link>
+              )}
             </div>
 
             {/* Mobile menu button */}

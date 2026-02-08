@@ -6,7 +6,7 @@ const teamMembers = [
   {
     name: 'Devam Patel',
     role: 'President',
-    avatar: 'https://i.postimg.cc/Z5c4RCcG/President_Devam_Patel.jpg',
+    avatar: 'https://i.postimg.cc/fWv3bRbw/President_Devam_Patel.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/devam-patel-5aa2582b1/'
     },
@@ -14,7 +14,7 @@ const teamMembers = [
   {
     name: 'Manan Suri',
     role: 'Vice President',
-    avatar: 'https://i.postimg.cc/Hk2dxVzT/Vice_President_Manan_Suri.jpg',
+    avatar: 'https://i.postimg.cc/BbNt7MzB/Vice_President_Manan_Suri.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/manan-suri-622657284/',
     },
@@ -22,7 +22,7 @@ const teamMembers = [
   {
     name: 'Smit Shah',
     role: 'General Secretary',
-    avatar: 'https://i.postimg.cc/fbqT5Dc8/Tvisha-Patel.png',
+    avatar: 'https://i.postimg.cc/rsgzZQHQ/General_Secretary_Smit_Shah.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/smit-shah-51a9b8284/',
     },
@@ -30,7 +30,7 @@ const teamMembers = [
   {
     name: 'Tanisha Desai',
     role: 'Joint Secretary',
-    avatar: 'https://i.postimg.cc/523b063w/Joint_Secretary_Tanisha_Desai.jpg',
+    avatar: 'https://i.postimg.cc/kMyV5g5r/Joint_Secretary_Tanisha_Desai.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tanisha-desai-a39657284/',
     },
@@ -38,7 +38,7 @@ const teamMembers = [
   {
     name: 'Sanchita Pathak',
     role: 'Joint Secretary',
-    avatar: 'https://i.postimg.cc/P5hdTmm3/Joint_Secretary_Sanchita_Pathak.jpg',
+    avatar: 'https://i.postimg.cc/T2cyP33z/Joint_Secretary_Sanchita_Pathak.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/sanchita-pathak-752a86288/',
     },
@@ -46,7 +46,7 @@ const teamMembers = [
   {
     name: 'Tapan Mehta',
     role: 'Organizing Secretary',
-    avatar: 'https://i.postimg.cc/VkRm6dRh/Organizing_Secretary_Tapan_Mehta.jpg',
+    avatar: 'https://i.postimg.cc/3rZywxwh/Organizing_Secretary_Tapan_Mehta.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tapan-mehta-5050a2284/',
     },
@@ -54,7 +54,7 @@ const teamMembers = [
   {
     name: 'Bhavya Vasavada',
     role: 'Managing Director',
-    avatar: 'https://i.postimg.cc/nhkpzCkP/Managing_Director_Bhavya_Vasavada.jpg',
+    avatar: 'https://i.postimg.cc/59mHt2tM/Managing_Director_Bhavya_Vasavada.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/bhavya-vasavada-85ab49323/',
     },
@@ -62,7 +62,7 @@ const teamMembers = [
   {
     name: 'Priyanshi Jhala',
     role: 'Head of Executives',
-    avatar: 'https://i.postimg.cc/NjYQB11N/Head_of_Executives_Priyanshi_Zhala.jpg',
+    avatar: 'https://i.postimg.cc/h40JGttH/Head_of_Executives_Priyanshi_Zhala.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/priyanshi-jhala/',
     },
@@ -70,7 +70,7 @@ const teamMembers = [
   {
     name: 'Saanvi Ganna',
     role: 'Director General',
-    avatar: 'https://i.postimg.cc/0yx9Ppp6/Director_General_Saanvi_Ganna.jpg',
+    avatar: 'https://i.postimg.cc/FzG1CD6x/Director_General_Saanvi_Ganna.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/saanvi-ganna-93a659328/',
     },
@@ -78,7 +78,7 @@ const teamMembers = [
   {
     name: 'Tanvi Madani',
     role: 'Technical Director',
-    avatar: 'https://i.postimg.cc/YCfqWXpG/Technical-Director-Tanvi-Madani.jpg',
+    avatar: 'https://i.postimg.cc/kMyV5g5g/Technical_Director_Tanvi_Madani.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tanvi-madani',
     },
@@ -86,7 +86,7 @@ const teamMembers = [
   {
     name: 'Bhavya Shah',
     role: 'Technical Director',
-    avatar: 'https://i.postimg.cc/d3rsqCzN/Dhruvin-Katakiya.png',
+    avatar: 'https://i.postimg.cc/02qLV9G8/Technical-Director-Bhavya-Shah.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/bhavyamshah/',
     },
@@ -95,7 +95,7 @@ const teamMembers = [
   {
     name: 'Yug Dave',
     role: 'Logistic Head',
-    avatar: 'https://i.postimg.cc/qv5ZdgGR/Rudra-Naik.png',
+    avatar: 'https://i.postimg.cc/L4Vqs8sK/Logistics_Head_Yug_Dave.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/yug-dave-268a60286/',
     },
@@ -103,7 +103,7 @@ const teamMembers = [
   {
     name: 'Shyam Ranipa',
     role: 'Treasurer',
-    avatar: 'https://i.postimg.cc/k4wTRPZ5/Treasurer-Shyam-Ranipa.jpg',
+    avatar: 'https://i.postimg.cc/8kbFCzCp/Treasurer_Shyam_Ranipa.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/shyamranipa/',
     },
@@ -111,7 +111,7 @@ const teamMembers = [
   {
     name: 'Tirth Shah',
     role: 'Social Marketing Head',
-    avatar: 'https://i.postimg.cc/JzqMnGqd/Marketing_Head_Tirth_Shah.jpg',
+    avatar: 'https://i.postimg.cc/8kbFCzCg/Marketing_Head_Tirth_Shah.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/tirth-shah-36b689337/',
     },
@@ -119,7 +119,7 @@ const teamMembers = [
   {
     name: 'Ayush Bhatnagar',
     role: 'Editor Head',
-    avatar: 'https://i.postimg.cc/dVvJw886/Editor_in_Chief_Ayush_Bhatnagar.jpg',
+    avatar: 'https://i.postimg.cc/0jZrXc4d/Editor_in_Chief_Ayush_Bhatnagar.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/ayushbhatnagar2004/',
     },
@@ -127,7 +127,7 @@ const teamMembers = [
   {
     name: 'Jinesh Dugar',
     role: 'Graphic Head',
-    avatar: 'https://i.postimg.cc/vZsZtHnc/Aayush-Patel.png',
+    avatar: 'https://i.postimg.cc/Gtz9gqfK/Graphics_Head_Jinesh_Dugar.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/in/jinesh-dugar-/',
     },
@@ -168,17 +168,30 @@ function Team() {
     <section id="team" className="relative py-20" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white heading-gradient">Our Team</h2>
+          <h2 style={{
+          fontSize: 'clamp(2rem, 4vw, 3rem)',
+          fontWeight: 'bold',
+          color: '#ffffff',
+          margin: '0 0 20px 0',
+          letterSpacing: '2px'
+          }}>Our Board Team</h2>
+          <div style={{
+          width: '200px',
+          height: '2px',
+          background: 'linear-gradient(90deg, var(--color-cyan) 0%, #0A1537 100%)',
+          margin: '0 auto 30px auto',
+          borderRadius: '1px'
+        }} />
           <p className="mt-2 text-white/70">Meet the passionate individuals behind ACES</p>
-          <div className="mt-4 mx-auto w-24 h-1 rounded bg-[var(--color-cyan)] animate-pulse"></div>
         </div>
+        
 
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-8">
           {teamMembers.map((member, index) => (
             <div
               key={member.name}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="team-card relative bg-[rgba(15,16,29,0.65)]/60 border border-[rgba(0,229,255,0.15)] rounded-2xl p-6 text-center text-white/90 shadow-[0_0_40px_0_rgba(0,229,255,0.08)] transition-all duration-500 ease-out transform opacity-0 translate-y-8 hover:scale-105 hover:shadow-[0_0_80px_0_rgba(0,229,255,0.25)] hover:border-[rgba(0,229,255,0.4)] hover:-translate-y-2 group cursor-pointer"
+              className="team-card relative overflow-hidden bg-[#0b0c16] border border-[rgba(0,229,255,0.15)] rounded-2xl p-6 text-center text-white/90 transition-all duration-500 ease-out transform opacity-0 translate-y-8 hover:scale-105 hover:border-[rgba(0,229,255,0.4)] hover:-translate-y-2 group cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Animated background gradient */}

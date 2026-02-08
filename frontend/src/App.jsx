@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Loading from './components/Loading'
 import Favicon from './components/Favicon'
+import NotFound from './components/NotFound'
 // Temporarily disable custom optimization hooks to resolve invalid hook call
 // import { 
 //   usePerformanceOptimization, 
@@ -21,6 +22,7 @@ const TeamPage = lazy(() => import('./pages/TeamPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const GalleryEventPage = lazy(() => import('./pages/GalleryEventPage'))
 const EventDetails = lazy(() => import('./components/EventDetails'))
+const SignInPage = lazy(() => import('./pages/SignInPage'))
 
 function App() {
   // Temporarily disable optimization hooks
@@ -100,6 +102,8 @@ function App() {
               />
               <Route path="/gallery/:slug" element={<GalleryEventPage />} />
               <Route path="/events/:id" element={<EventDetails />} />
+              <Route path="/signin" element={<SignInPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>

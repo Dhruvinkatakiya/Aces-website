@@ -94,18 +94,8 @@ function EventDetails() {
 
   if (loading) {
     return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #0f101d 0%, #1a1b2e 50%, #16213e 100%)'
-      }}>
-        <div style={{
-          color: '#00E5FF',
-          fontSize: '1.5rem',
-          fontWeight: 'bold'
-        }}>
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-[#0f101d] via-[#1a1b2e] to-[#16213e]">
+        <div className="text-[var(--color-cyan)] text-2xl font-bold animate-pulse">
           Loading...
         </div>
       </div>
@@ -114,42 +104,14 @@ function EventDetails() {
 
   if (!event) {
     return (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #0f101d 0%, #1a1b2e 50%, #16213e 100%)',
-        color: '#ffffff',
-        textAlign: 'center',
-        padding: '20px'
-      }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '20px' }}>Event Not Found</h1>
-        <p style={{ marginBottom: '30px', color: 'rgba(255, 255, 255, 0.7)' }}>
+      <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-[#0f101d] via-[#1a1b2e] to-[#16213e] text-white text-center p-5">
+        <h1 className="text-4xl font-bold mb-5">Event Not Found</h1>
+        <p className="mb-8 text-white/70">
           The event you're looking for doesn't exist.
         </p>
         <button
           onClick={() => navigate('/events')}
-          style={{
-            padding: '12px 24px',
-            borderRadius: '8px',
-            border: '2px solid #00E5FF',
-            background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)',
-            color: '#00E5FF',
-            fontSize: '16px',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.background = 'linear-gradient(135deg, #00E5FF 0%, #0099CC 100%)'
-            e.target.style.color = '#0f101d'
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.background = 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)'
-            e.target.style.color = '#00E5FF'
-          }}
+          className="px-6 py-3 rounded-lg border-2 border-[var(--color-cyan)] bg-[rgba(0,229,255,0.1)] text-[var(--color-cyan)] text-base font-bold cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-[var(--color-cyan)] hover:to-[#0099CC] hover:text-[#0f101d]"
         >
           Back to Events
         </button>
@@ -158,243 +120,85 @@ function EventDetails() {
   }
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #0f101d 0%, #1a1b2e 50%, #16213e 100%)',
-      padding: '80px 0',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <div className="min-h-screen bg-gradient-to-br from-[#0f101d] via-[#1a1b2e] to-[#16213e] py-20 relative overflow-hidden">
       {/* Background Effects */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        background: 'radial-gradient(circle at 20% 80%, rgba(0, 229, 255, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(155, 89, 182, 0.1) 0%, transparent 50%)',
-        zIndex: 1
-      }} />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(0,229,255,0.1)_0%,transparent_50%),radial-gradient(circle_at_80%_20%,rgba(155,89,182,0.1)_0%,transparent_50%)] z-[1]" />
 
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 20px',
-        position: 'relative',
-        zIndex: 10
-      }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Back Button */}
         <button
           onClick={() => navigate('/events')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '12px 20px',
-            borderRadius: '25px',
-            border: '2px solid rgba(0, 229, 255, 0.3)',
-            background: 'rgba(0, 0, 0, 0.3)',
-            color: '#00E5FF',
-            fontSize: '14px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            backdropFilter: 'blur(10px)',
-            marginBottom: '40px'
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.borderColor = '#00E5FF'
-            e.target.style.background = 'rgba(0, 229, 255, 0.1)'
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.borderColor = 'rgba(0, 229, 255, 0.3)'
-            e.target.style.background = 'rgba(0, 0, 0, 0.3)'
-          }}
+          className="flex items-center gap-2 px-5 py-3 rounded-full border-2 border-[rgba(0,229,255,0.3)] bg-black/30 text-[var(--color-cyan)] text-sm font-semibold cursor-pointer transition-all duration-300 backdrop-blur-md mb-10 hover:border-[var(--color-cyan)] hover:bg-[rgba(0,229,255,0.1)]"
         >
           ← Back to Events
         </button>
 
         {/* Event Header */}
-        <div style={{
-          background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
-          borderRadius: '24px',
-          padding: '40px',
-          marginBottom: '30px',
-          border: '1px solid rgba(0, 229, 255, 0.3)',
-          boxShadow: '0 10px 40px rgba(0, 229, 255, 0.15)',
-          backdropFilter: 'blur(15px)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
+        <div className="bg-gradient-to-br from-[#11172b]/90 to-[#0a1537]/95 rounded-3xl p-6 md:p-10 mb-8 border border-[rgba(0,229,255,0.3)] shadow-[0_10px_40px_rgba(0,229,255,0.15)] backdrop-blur-xl relative overflow-hidden">
           {/* Status Badge */}
-          <div style={{
-            position: 'absolute',
-            top: '20px',
-            right: '20px',
-            padding: '8px 16px',
-            borderRadius: '20px',
-            background: event.status === 'upcoming'
-              ? 'linear-gradient(135deg, #00E5FF 0%, #0099CC 100%)'
-              : 'linear-gradient(135deg, var(--color-cyan) 0%, #0A1537 100%)',
-            color: '#ffffff',
-            fontSize: '12px',
-            fontWeight: 'bold',
-            textTransform: 'uppercase',
-            letterSpacing: '1px',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.1)'
-          }}>
+          <div className={`absolute top-5 right-5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg backdrop-blur-md border border-white/10 ${
+            event.status === 'upcoming'
+              ? 'bg-gradient-to-br from-[var(--color-cyan)] to-[#0099CC] text-[#0f101d]'
+              : 'bg-gradient-to-br from-[var(--color-cyan)] to-[#0A1537] text-white'
+          }`}>
             {event.status}
           </div>
 
-          <h1 style={{
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
-            fontWeight: 'bold',
-            color: '#ffffff',
-            margin: '0 0 20px 0',
-            lineHeight: '1.2',
-            background: 'linear-gradient(135deg, #ffffff 0%, var(--color-cyan) 100%)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 20px rgba(0, 229, 255, 0.3)'
-          }}>
+          <h1 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-[var(--color-cyan)] mb-6 leading-tight drop-shadow-[0_0_20px_rgba(0,229,255,0.3)]">
             {event.title}
           </h1>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '20px',
-            marginBottom: '30px'
-          }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '15px 20px',
-              background: 'rgba(0, 229, 255, 0.05)',
-              borderRadius: '12px',
-              border: '1px solid rgba(0, 229, 255, 0.1)'
-            }}>
-              <span style={{ color: '#00E5FF', fontSize: '18px' }}>📅</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+            <div className="flex items-center gap-3 p-4 bg-[rgba(0,229,255,0.05)] rounded-xl border border-[rgba(0,229,255,0.1)]">
+              <span className="text-[var(--color-cyan)] text-xl">📅</span>
               <div>
-                <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px' }}>Date</div>
-                <div style={{ color: '#ffffff', fontWeight: '600' }}>{event.date}</div>
+                <div className="text-white/70 text-sm">Date</div>
+                <div className="text-white font-semibold">{event.date}</div>
               </div>
             </div>
 
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '15px 20px',
-              background: 'rgba(0, 229, 255, 0.05)',
-              borderRadius: '12px',
-              border: '1px solid rgba(0, 229, 255, 0.1)'
-            }}>
-              <span style={{ color: '#00E5FF', fontSize: '18px' }}>🕒</span>
+            <div className="flex items-center gap-3 p-4 bg-[rgba(0,229,255,0.05)] rounded-xl border border-[rgba(0,229,255,0.1)]">
+              <span className="text-[var(--color-cyan)] text-xl">🕒</span>
               <div>
-                <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px' }}>Time</div>
-                <div style={{ color: '#ffffff', fontWeight: '600' }}>{event.time}</div>
+                <div className="text-white/70 text-sm">Time</div>
+                <div className="text-white font-semibold">{event.time}</div>
               </div>
             </div>
 
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '15px 20px',
-              background: 'rgba(0, 229, 255, 0.05)',
-              borderRadius: '12px',
-              border: '1px solid rgba(0, 229, 255, 0.1)'
-            }}>
-              <span style={{ color: '#00E5FF', fontSize: '18px' }}>📍</span>
+            <div className="flex items-center gap-3 p-4 bg-[rgba(0,229,255,0.05)] rounded-xl border border-[rgba(0,229,255,0.1)]">
+              <span className="text-[var(--color-cyan)] text-xl">📍</span>
               <div>
-                <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px' }}>Location</div>
-                <div style={{ color: '#ffffff', fontWeight: '600' }}>{event.location}</div>
+                <div className="text-white/70 text-sm">Location</div>
+                <div className="text-white font-semibold">{event.location}</div>
               </div>
             </div>
           </div>
 
-          <p style={{
-            fontSize: '1.1rem',
-            color: 'rgba(255, 255, 255, 0.85)',
-            lineHeight: '1.6',
-            margin: '0'
-          }}>
+          <p className="text-lg text-white/85 leading-relaxed m-0">
             {event.description}
           </p>
         </div>
 
         {/* Event Details Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-          gap: '30px',
-          marginBottom: '40px'
-        }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
           {/* Full Description */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
-            borderRadius: '20px',
-            padding: '30px',
-            border: '1px solid rgba(0, 229, 255, 0.3)',
-            boxShadow: '0 10px 40px rgba(0, 229, 255, 0.15)',
-            backdropFilter: 'blur(15px)'
-          }}>
-            <h3 style={{
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-              color: '#00E5FF',
-              margin: '0 0 20px 0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}>
+          <div className="bg-gradient-to-br from-[#11172b]/90 to-[#0a1537]/95 rounded-2xl p-6 md:p-8 border border-[rgba(0,229,255,0.3)] shadow-[0_10px_40px_rgba(0,229,255,0.15)] backdrop-blur-xl h-full">
+            <h3 className="text-2xl font-bold text-[var(--color-cyan)] mb-5 flex items-center gap-2">
               📝 About This Event
             </h3>
-            <p style={{
-              fontSize: '1rem',
-              color: 'rgba(255, 255, 255, 0.85)',
-              lineHeight: '1.6',
-              margin: '0'
-            }}>
+            <p className="text-base text-white/85 leading-relaxed m-0">
               {event.fullDescription}
             </p>
           </div>
 
           {/* Speakers */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
-            borderRadius: '20px',
-            padding: '30px',
-            border: '1px solid rgba(0, 229, 255, 0.3)',
-            boxShadow: '0 10px 40px rgba(0, 229, 255, 0.15)',
-            backdropFilter: 'blur(15px)'
-          }}>
-            <h3 style={{
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-              color: '#00E5FF',
-              margin: '0 0 20px 0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}>
+          <div className="bg-gradient-to-br from-[#11172b]/90 to-[#0a1537]/95 rounded-2xl p-6 md:p-8 border border-[rgba(0,229,255,0.3)] shadow-[0_10px_40px_rgba(0,229,255,0.15)] backdrop-blur-xl h-full">
+            <h3 className="text-2xl font-bold text-[var(--color-cyan)] mb-5 flex items-center gap-2">
               👥 Speakers
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div className="flex flex-col gap-2.5">
               {event.speakers.map((speaker, index) => (
-                <div key={index} style={{
-                  padding: '12px 16px',
-                  background: 'rgba(0, 229, 255, 0.05)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(0, 229, 255, 0.1)',
-                  color: '#ffffff',
-                  fontSize: '14px'
-                }}>
+                <div key={index} className="p-3 bg-[rgba(0,229,255,0.05)] rounded-lg border border-[rgba(0,229,255,0.1)] text-white text-sm">
                   {speaker}
                 </div>
               ))}
@@ -402,36 +206,17 @@ function EventDetails() {
           </div>
 
           {/* Agenda */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
-            borderRadius: '20px',
-            padding: '30px',
-            border: '1px solid rgba(0, 229, 255, 0.3)',
-            boxShadow: '0 10px 40px rgba(0, 229, 255, 0.15)',
-            backdropFilter: 'blur(15px)'
-          }}>
-            <h3 style={{
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-              color: '#00E5FF',
-              margin: '0 0 20px 0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}>
+          <div className="bg-gradient-to-br from-[#11172b]/90 to-[#0a1537]/95 rounded-2xl p-6 md:p-8 border border-[rgba(0,229,255,0.3)] shadow-[0_10px_40px_rgba(0,229,255,0.15)] backdrop-blur-xl h-full">
+            <h3 className="text-2xl font-bold text-[var(--color-cyan)] mb-5 flex items-center gap-2">
               📋 Agenda
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div className="flex flex-col gap-2">
               {event.agenda.map((item, index) => (
-                <div key={index} style={{
-                  padding: '10px 14px',
-                  background: item.startsWith('Day') || item === '' ? 'rgba(0, 229, 255, 0.1)' : 'rgba(0, 229, 255, 0.05)',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(0, 229, 255, 0.1)',
-                  color: item.startsWith('Day') || item === '' ? '#00E5FF' : '#ffffff',
-                  fontSize: item.startsWith('Day') || item === '' ? '16px' : '14px',
-                  fontWeight: item.startsWith('Day') || item === '' ? 'bold' : 'normal'
-                }}>
+                <div key={index} className={`p-2.5 rounded-lg border border-[rgba(0,229,255,0.1)] ${
+                  item.startsWith('Day') || item === '' 
+                    ? 'bg-[rgba(0,229,255,0.1)] text-[var(--color-cyan)] text-base font-bold' 
+                    : 'bg-[rgba(0,229,255,0.05)] text-white text-sm font-normal'
+                }`}>
                   {item}
                 </div>
               ))}
@@ -439,39 +224,14 @@ function EventDetails() {
           </div>
 
           {/* Requirements */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
-            borderRadius: '20px',
-            padding: '30px',
-            border: '1px solid rgba(0, 229, 255, 0.3)',
-            boxShadow: '0 10px 40px rgba(0, 229, 255, 0.15)',
-            backdropFilter: 'blur(15px)'
-          }}>
-            <h3 style={{
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-              color: '#00E5FF',
-              margin: '0 0 20px 0',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}>
+          <div className="bg-gradient-to-br from-[#11172b]/90 to-[#0a1537]/95 rounded-2xl p-6 md:p-8 border border-[rgba(0,229,255,0.3)] shadow-[0_10px_40px_rgba(0,229,255,0.15)] backdrop-blur-xl h-full">
+            <h3 className="text-2xl font-bold text-[var(--color-cyan)] mb-5 flex items-center gap-2">
               📦 Requirements
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div className="flex flex-col gap-2.5">
               {event.requirements.map((req, index) => (
-                <div key={index} style={{
-                  padding: '12px 16px',
-                  background: 'rgba(0, 229, 255, 0.05)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(0, 229, 255, 0.1)',
-                  color: '#ffffff',
-                  fontSize: '14px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}>
-                  <span style={{ color: '#00E5FF' }}>✓</span>
+                <div key={index} className="p-3 bg-[rgba(0,229,255,0.05)] rounded-lg border border-[rgba(0,229,255,0.1)] text-white text-sm flex items-center gap-2">
+                  <span className="text-[var(--color-cyan)]">✓</span>
                   {req}
                 </div>
               ))}
@@ -480,53 +240,16 @@ function EventDetails() {
         </div>
 
         {/* Contact Information */}
-        <div style={{
-          background: 'linear-gradient(135deg, rgba(17, 23, 43, 0.9) 0%, rgba(10, 21, 55, 0.95) 100%)',
-          borderRadius: '20px',
-          padding: '30px',
-          border: '1px solid rgba(0, 229, 255, 0.3)',
-          boxShadow: '0 10px 40px rgba(0, 229, 255, 0.15)',
-          backdropFilter: 'blur(15px)',
-          textAlign: 'center'
-        }}>
-          <h3 style={{
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-            color: '#00E5FF',
-            margin: '0 0 15px 0'
-          }}>
+        <div className="bg-gradient-to-br from-[#11172b]/90 to-[#0a1537]/95 rounded-2xl p-6 md:p-8 border border-[rgba(0,229,255,0.3)] shadow-[0_10px_40px_rgba(0,229,255,0.15)] backdrop-blur-xl text-center">
+          <h3 className="text-2xl font-bold text-[var(--color-cyan)] mb-4">
             📞 Contact Information
           </h3>
-          <p style={{
-            fontSize: '1rem',
-            color: 'rgba(255, 255, 255, 0.85)',
-            margin: '0 0 20px 0'
-          }}>
+          <p className="text-base text-white/85 mb-5">
             For more information about this event, please contact us at:
           </p>
           <a
             href={`mailto:${event.contact}`}
-            style={{
-              display: 'inline-block',
-              padding: '12px 24px',
-              borderRadius: '25px',
-              border: '2px solid #00E5FF',
-              background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)',
-              color: '#00E5FF',
-              fontSize: '16px',
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.background = 'linear-gradient(135deg, #00E5FF 0%, #0099CC 100%)'
-              e.target.style.color = '#0f101d'
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.background = 'linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(0, 229, 255, 0.05) 100%)'
-              e.target.style.color = '#00E5FF'
-            }}
+            className="inline-block px-6 py-3 rounded-full border-2 border-[var(--color-cyan)] bg-[rgba(0,229,255,0.1)] text-[var(--color-cyan)] text-base font-bold no-underline cursor-pointer transition-all duration-300 hover:bg-gradient-to-br hover:from-[var(--color-cyan)] hover:to-[#0099CC] hover:text-[#0f101d]"
           >
             {event.contact}
           </a>

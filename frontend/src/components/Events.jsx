@@ -45,16 +45,6 @@ function Events() {
       image: "",
       status: "completed"
     },
-    {
-      id: 4,
-      title: "ACES Annual Meet",
-      date: "February 15, 2024",
-      time: "6:00 PM - 9:00 PM",
-      location: "Main Hall",
-      description: "Annual gathering of ACES members with networking, food, and celebration of achievements.",
-      image: "",
-      status: "completed"
-    }
   ]
 
   const categories = [
@@ -103,18 +93,9 @@ function Events() {
           borderRadius: '1px'
         }} />
 
-        <p style={{
-          fontSize: '1.1rem',
-          color: 'rgba(255, 255, 255, 0.85)',
-          margin: '0 auto',
-          maxWidth: '600px',
-          lineHeight: '1.6',
-          textAlign: 'center',
-          letterSpacing: '0.5px',
-          transition: 'color 0.4s'
-        }}>
-          Discover exciting events, workshops, and competitions organized by ACES.
-        </p>
+        <p className="mt-2 text-white/70">Discover exciting events, workshops, and competitions organized by ACES</p>
+
+        
       </div>
 
       {/* Filter Buttons */}
