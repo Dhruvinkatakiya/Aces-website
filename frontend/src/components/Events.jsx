@@ -22,7 +22,7 @@ function Events() {
       time: "2:35 AM - 4:30 PM",
       location: "C-Auditorium",
       description: "Join us for an exciting 48-hour coding competition where students showcase their programming skills and innovative ideas.",
-      image: "",
+      image: "https://i.postimg.cc/pTXRrqS4/Summer-Internship-Insights.jpg",
       status: "completed"
     },
     {
@@ -32,7 +32,7 @@ function Events() {
       time: "2:00 PM - 4:00 PM",
       location: "ITNU Campus",
       description: "Industry insigts from experts, network with professionals, boost career growth and knowledge.",
-      image: "",
+      image: "https://i.postimg.cc/FRsNzD6q/Founders-Playbook.jpg",
       status: "completed"
     },
     {

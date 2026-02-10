@@ -100,7 +100,7 @@ Faculty Advisor: `}
         }
         @media (max-width: 768px) {
           .hero-inner { flex-direction: column; align-items: center; justify-content: center; }
-          .hero-logo-wrap { margin-right: 0; }
+          .hero-logo-wrap { margin-right: 0; display: none !important; }
         }
         @media (max-width: 480px) {
           .hero-container { padding: 88px 12px 32px; }
