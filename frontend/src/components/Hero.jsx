@@ -85,7 +85,7 @@ const Hero = () => {
             <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#ffbd2e', display: 'inline-block' }} />
             <span style={{ width: 12, height: 12, borderRadius: 9999, background: '#27c93f', display: 'inline-block' }} />
           </div>
-          <pre style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: 1.8, fontSize: 'clamp(13px, 2.8vw, 16px)' }}>
+          <pre style={{ color:'white', margin: 0, whiteSpace: 'pre-wrap', lineHeight: 1.8, fontSize: 'clamp(13px, 2.8vw, 16px)' }}>
             {`Since its inception, the ACES club has been a vibrant hub for students passionate about computer science and engineering. The club actively organizes a variety of technical, competitive, and collaborative events.nologies, guest lectures, and collaborative projects.
 
 Faculty Advisor: `}

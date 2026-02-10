@@ -1,21 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import logo from '../assets/logo.png'
 
 function Navbar() {
+  const { user, logout } = useAuth()
   const [mobileOpen, setMobileOpen] = useState(false)
   const linksContainerRef = useRef(null)
   const location = useLocation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const lastScrollY = useRef(0)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    setIsLoggedIn(!!token)
-  }, [])
+  const isLoggedIn = !!user
 
   useEffect(() => {
     const handleScroll = () => {

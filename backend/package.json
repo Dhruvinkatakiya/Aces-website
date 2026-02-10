@@ -16,13 +16,15 @@
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
+    "dotenv": "^17.2.4",
     "express": "^5.1.0",
+    "google-auth-library": "^10.5.0",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.18.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2",
-    "eslint": "^9.33.0"
+    "eslint": "^9.33.0",
+    "nodemon": "^3.0.2"
   },
   "engines": {
     "node": ">=18.0.0"

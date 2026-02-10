@@ -23,6 +23,7 @@ const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const GalleryEventPage = lazy(() => import('./pages/GalleryEventPage'))
 const EventDetails = lazy(() => import('./components/EventDetails'))
 const SignInPage = lazy(() => import('./pages/SignInPage'))
+const ProfilePage = lazy(() => import('./pages/ProfilePage'))
 
 function App() {
   // Temporarily disable optimization hooks
@@ -102,7 +103,22 @@ function App() {
               />
               <Route path="/gallery/:slug" element={<GalleryEventPage />} />
               <Route path="/events/:id" element={<EventDetails />} />
-              <Route path="/signin" element={<SignInPage />} />
+              <Route 
+                path="/signin" 
+                element={
+                  <div>
+                    <SignInPage />
+                  </div>
+                } 
+              />
+              <Route 
+                path="/profile" 
+                element={
+                  <div>
+                    <ProfilePage />
+                  </div>
+                } 
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

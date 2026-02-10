@@ -1,24 +1,53 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { GoogleLogin } from '@react-oauth/google'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import FirstLoginForm from '../components/FirstLoginForm'
 
 function SignInPage() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  })
+  const { login } = useAuth()
+  const navigate = useNavigate()
+  const [error, setError] = useState('')
+  const [showFirstLogin, setShowFirstLogin] = useState(false)
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/google-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ token: credentialResponse.credential })
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setError(data.msg || 'Login failed')
+        return
+      }
+
+      login(data.user, data.token, data.loginLogId)
+
+      if (data.isNewUser || !data.user.branch || !data.user.year) {
+        setShowFirstLogin(true)
+      } else {
+        navigate('/')
+      }
+    } catch (err) {
+      console.error('Login error:', err)
+      setError('Server connection failed')
+    }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Sign in attempt:', formData)
-    // Add authentication logic here
+  const handleGoogleError = () => {
+    setError('Google Login Failed')
+  }
+
+  const onFirstLoginComplete = () => {
+    setShowFirstLogin(false)
+    navigate('/')
   }
 
   return (
@@ -27,71 +56,41 @@ function SignInPage() {
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[var(--color-cyan)] opacity-[0.05] rounded-full blur-[100px]" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-600 opacity-[0.05] rounded-full blur-[100px]" />
       
+      {showFirstLogin && <FirstLoginForm onComplete={onFirstLoginComplete} />}
+
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-md"
       >
-        <div className="bg-[#151625]/80 backdrop-blur-xl border border-[rgba(0,229,255,0.1)] rounded-2xl p-8 shadow-[0_0_40px_rgba(0,0,0,0.3)]">
+        <div className="bg-[#151625]/80 backdrop-blur-xl border border-[rgba(0,229,255,0.1)] rounded-2xl p-8 shadow-[0_0_40px_rgba(0,0,0,0.3)] text-center">
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
-            <p className="text-white/60">Sign in to continue to ACES</p>
+            <p className="text-white/60">Sign in with your Nirma University email</p>
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-white/80 ml-1">Email Address</label>
-              <div className="relative group">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  className="w-full bg-[#0A0B14] border border-[rgba(0,229,255,0.1)] rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[var(--color-cyan)] focus:shadow-[0_0_15px_rgba(0,229,255,0.1)] transition-all duration-300"
-                  required
-                />
-              </div>
+          {error && (
+            <div className="mb-6 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm">
+              {error}
             </div>
+          )}
 
-            <div className="space-y-2">
-              <div className="flex justify-between items-center ml-1">
-                <label className="text-sm font-medium text-white/80">Password</label>
-                <Link to="/forgot-password" className="text-xs text-[var(--color-cyan)] hover:text-cyan-300 transition-colors">
-                  Forgot Password?
-                </Link>
-              </div>
-              <div className="relative group">
-                <input
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Enter your password"
-                  className="w-full bg-[#0A0B14] border border-[rgba(0,229,255,0.1)] rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[var(--color-cyan)] focus:shadow-[0_0_15px_rgba(0,229,255,0.1)] transition-all duration-300"
-                  required
-                />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-gradient-to-r from-[var(--color-cyan)] to-cyan-600 text-[#0F101D] font-bold py-3.5 rounded-xl hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-            >
-              Sign In
-            </button>
-          </form>
-
-          {/* Footer */}
-          <div className="mt-8 text-center text-sm text-white/60">
-            Don't have an account?{' '}
-            <Link to="/signup" className="text-[var(--color-cyan)] font-medium hover:text-cyan-300 transition-colors">
-              Sign Up
-            </Link>
+          <div className="flex justify-center">
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={handleGoogleError}
+              theme="filled_black"
+              size="large"
+              shape="pill"
+              text="continue_with"
+            />
           </div>
+
+          <p className="mt-6 text-sm text-white/40">
+            Only @nirmauni.ac.in emails are allowed.
+          </p>
         </div>
       </motion.div>
     </div>

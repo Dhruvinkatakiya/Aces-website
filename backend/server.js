@@ -10,6 +10,9 @@ function createApp() {
     app.use(cors());
     app.use(express.json());
 
+    // Routes
+    app.use('/api/auth', require('./routes/auth'));
+
     // Simple healthcheck
     app.get('/health', (req, res) => {
         res.json({ ok: true, db: isMongoConnected ? 'connected' : 'disconnected' });
